@@ -1,0 +1,1395 @@
+{
+    "search_metadata": {
+        "id": "6668913f8cd878e8d02ab6fe",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/cc723f9ea82f6eff/6668913f8cd878e8d02ab6fe.json",
+        "created_at": "2024-06-11 18:02:39 UTC",
+        "processed_at": "2024-06-11 18:02:39 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=us&curr=USD&q=Flights+to+AUS+from+PEK+on+2024-06-12+through+2024-06-18",
+        "raw_html_file": "https://serpapi.com/searches/cc723f9ea82f6eff/6668913f8cd878e8d02ab6fe.html",
+        "prettify_html_file": "https://serpapi.com/searches/cc723f9ea82f6eff/6668913f8cd878e8d02ab6fe.prettify",
+        "total_time_taken": 1.96
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "en",
+        "gl": "us",
+        "departure_id": "PEK",
+        "arrival_id": "AUS",
+        "outbound_date": "2024-06-12",
+        "return_date": "2024-06-18",
+        "currency": "USD"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 17:25"
+                    },
+                    "arrival_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 14:45"
+                    },
+                    "duration": 740,
+                    "airplane": "Boeing 777",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 889",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 755 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 18:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-13 00:30"
+                    },
+                    "duration": 225,
+                    "airplane": "Airbus A320",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2047",
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 221 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 240,
+                    "name": "San Francisco International Airport",
+                    "id": "SFO"
+                }
+            ],
+            "total_duration": 1205,
+            "carbon_emissions": {
+                "this_flight": 977000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -18
+            },
+            "price": 1464,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFZ3hWUVRnNE9YeFZRVEl3TkRjYUN3aXU5d2dRQWhvRFZWTkVPQnh3cnZjSSIsW1siUEVLIiwiMjAyNC0wNi0xMiIsIlNGTyIsbnVsbCwiVUEiLCI4ODkiXSxbIlNGTyIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIlVBIiwiMjA0NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 08:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 12:50"
+                    },
+                    "duration": 210,
+                    "airplane": "Boeing 767",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 964",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 233 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 17:45"
+                    },
+                    "arrival_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 11:30"
+                    },
+                    "duration": 585,
+                    "airplane": "Boeing 777",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 876",
+                    "ticket_also_sold_by": [
+                        "ANA"
+                    ],
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 708 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 13:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 18:55"
+                    },
+                    "duration": 225,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1116",
+                    "ticket_also_sold_by": [
+                        "ANA"
+                    ],
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 209 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 295,
+                    "name": "Haneda Airport",
+                    "id": "HND"
+                },
+                {
+                    "duration": 100,
+                    "name": "San Francisco International Airport",
+                    "id": "SFO"
+                }
+            ],
+            "total_duration": 1415,
+            "carbon_emissions": {
+                "this_flight": 1151000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -3
+            },
+            "price": 1720,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEpPU0RrMk5IeFZRVGczTm54VlFURXhNVFlhQ3dqZ3Z3b1FBaG9EVlZORU9CeHc0TDhLIixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSE5EIixudWxsLCJOSCIsIjk2NCJdLFsiSE5EIiwiMjAyNC0wNi0xMiIsIlNGTyIsbnVsbCwiVUEiLCI4NzYiXSxbIlNGTyIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIlVBIiwiMTExNiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 08:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 12:50"
+                    },
+                    "duration": 210,
+                    "airplane": "Boeing 767",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 964",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 233 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Narita International Airport",
+                        "id": "NRT",
+                        "time": "2024-06-12 16:45"
+                    },
+                    "arrival_airport": {
+                        "name": "George Bush Intercontinental Airport",
+                        "id": "IAH",
+                        "time": "2024-06-12 14:50"
+                    },
+                    "duration": 725,
+                    "airplane": "Boeing 787",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 6",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 662 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "George Bush Intercontinental Airport",
+                        "id": "IAH",
+                        "time": "2024-06-12 16:18"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 17:17"
+                    },
+                    "duration": 59,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1732",
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 59 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 235,
+                    "name": "Narita International Airport",
+                    "id": "HND"
+                },
+                {
+                    "duration": 88,
+                    "name": "George Bush Intercontinental Airport",
+                    "id": "IAH"
+                }
+            ],
+            "total_duration": 1317,
+            "carbon_emissions": {
+                "this_flight": 955000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -20
+            },
+            "price": 1730,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEJPU0RrMk5IeFZRVFo4VlVFeE56TXlHZ3NJd2NjS0VBSWFBMVZUUkRnY2NNSEhDZz09IixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSE5EIixudWxsLCJOSCIsIjk2NCJdLFsiTlJUIiwiMjAyNC0wNi0xMiIsIklBSCIsbnVsbCwiVUEiLCI2Il0sWyJJQUgiLCIyMDI0LTA2LTEyIiwiQVVTIixudWxsLCJVQSIsIjE3MzIiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 02:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Frankfurt Airport",
+                        "id": "FRA",
+                        "time": "2024-06-12 06:50"
+                    },
+                    "duration": 620,
+                    "airplane": "Boeing 777",
+                    "airline": "Air China",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/CA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "CA 965",
+                    "ticket_also_sold_by": [
+                        "Lufthansa"
+                    ],
+                    "legroom": "32 in",
+                    "extensions": [
+                        "Above average legroom (32 in)",
+                        "In-seat power outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 708 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Frankfurt Airport",
+                        "id": "FRA",
+                        "time": "2024-06-12 10:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 13:50"
+                    },
+                    "duration": 645,
+                    "airplane": "Boeing 787",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Premium Economy",
+                    "flight_number": "LH 468",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "extensions": [
+                        "Extra reclining seat",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 955 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 195,
+                    "name": "Frankfurt Airport",
+                    "id": "FRA"
+                }
+            ],
+            "total_duration": 1460,
+            "carbon_emissions": {
+                "this_flight": 1664000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": 40
+            },
+            "price": 2677,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFZ3REUVRrMk5YeE1TRFEyT0JvTENPQ3FFQkFDR2dOVlUwUTRISERncWhBPSIsW1siUEVLIiwiMjAyNC0wNi0xMiIsIkZSQSIsbnVsbCwiQ0EiLCI5NjUiXSxbIkZSQSIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIkxIIiwiNDY4Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 15:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 19:35"
+                    },
+                    "duration": 205,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 962",
+                    "legroom": "34 in",
+                    "extensions": [
+                        "Above average legroom (34 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 202 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 21:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 15:15"
+                    },
+                    "duration": 610,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 126",
+                    "legroom": "34 in",
+                    "extensions": [
+                        "Above average legroom (34 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 649 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 18:46"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 23:52"
+                    },
+                    "duration": 186,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2017",
+                    "ticket_also_sold_by": [
+                        "Alaska"
+                    ],
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 173 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 90,
+                    "name": "Haneda Airport",
+                    "id": "HND"
+                },
+                {
+                    "duration": 211,
+                    "name": "Los Angeles International Airport",
+                    "id": "LAX"
+                }
+            ],
+            "total_duration": 1302,
+            "carbon_emissions": {
+                "this_flight": 1025000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -14
+            },
+            "price": 3015,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEpPU0RrMk1ueE9TREV5Tm54QlFUSXdNVGNhQ3dqNnNoSVFBaG9EVlZORU9CeHcrcklTIixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSE5EIixudWxsLCJOSCIsIjk2MiJdLFsiSE5EIiwiMjAyNC0wNi0xMiIsIkxBWCIsbnVsbCwiTkgiLCIxMjYiXSxbIkxBWCIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIkFBIiwiMjAxNyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 15:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 19:35"
+                    },
+                    "duration": 205,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 962",
+                    "legroom": "34 in",
+                    "extensions": [
+                        "Above average legroom (34 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 202 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 21:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 15:15"
+                    },
+                    "duration": 610,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 126",
+                    "legroom": "34 in",
+                    "extensions": [
+                        "Above average legroom (34 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 649 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 18:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 23:58"
+                    },
+                    "duration": 188,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1221",
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 142 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 90,
+                    "name": "Haneda Airport",
+                    "id": "HND"
+                },
+                {
+                    "duration": 215,
+                    "name": "Los Angeles International Airport",
+                    "id": "LAX"
+                }
+            ],
+            "total_duration": 1308,
+            "carbon_emissions": {
+                "this_flight": 995000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -16
+            },
+            "price": 3015,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEpPU0RrMk1ueE9TREV5Tm54VlFURXlNakVhQ3dqNnNoSVFBaG9EVlZORU9CeHcrcklTIixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSE5EIixudWxsLCJOSCIsIjk2MiJdLFsiSE5EIiwiMjAyNC0wNi0xMiIsIkxBWCIsbnVsbCwiTkgiLCIxMjYiXSxbIkxBWCIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIlVBIiwiMTIyMSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 15:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 19:35"
+                    },
+                    "duration": 205,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 962",
+                    "legroom": "34 in",
+                    "extensions": [
+                        "Above average legroom (34 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 202 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Haneda Airport",
+                        "id": "HND",
+                        "time": "2024-06-12 21:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Seattle–Tacoma International Airport",
+                        "id": "SEA",
+                        "time": "2024-06-12 14:25"
+                    },
+                    "duration": 550,
+                    "airplane": "Boeing 787",
+                    "airline": "ANA",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/NH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "NH 118",
+                    "legroom": "32 in",
+                    "extensions": [
+                        "Above average legroom (32 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 706 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Seattle–Tacoma International Airport",
+                        "id": "SEA",
+                        "time": "2024-06-12 17:51"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 23:59"
+                    },
+                    "duration": 248,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 594",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 230 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 100,
+                    "name": "Haneda Airport",
+                    "id": "HND"
+                },
+                {
+                    "duration": 206,
+                    "name": "Seattle–Tacoma International Airport",
+                    "id": "SEA"
+                }
+            ],
+            "total_duration": 1309,
+            "carbon_emissions": {
+                "this_flight": 1140000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -4
+            },
+            "price": 3015,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEZPU0RrMk1ueE9TREV4T0h4QlV6VTVOQm9MQ1BxeUVoQUNHZ05WVTBRNEhIRDZzaEk9IixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSE5EIixudWxsLCJOSCIsIjk2MiJdLFsiSE5EIiwiMjAyNC0wNi0xMiIsIlNFQSIsbnVsbCwiTkgiLCIxMTgiXSxbIlNFQSIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIkFTIiwiNTk0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 10:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 13:50"
+                    },
+                    "duration": 120,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Korean Air",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KE.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KE 860",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 97 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 19:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 14:50"
+                    },
+                    "duration": 670,
+                    "airplane": "Airbus A380",
+                    "airline": "Korean Air",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KE.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KE 11",
+                    "legroom": "33 in",
+                    "extensions": [
+                        "Above average legroom (33 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 841 kg"
+                    ],
+                    "overnight": true,
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Los Angeles International Airport",
+                        "id": "LAX",
+                        "time": "2024-06-12 18:46"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 23:52"
+                    },
+                    "duration": 186,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2017",
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 173 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 350,
+                    "name": "Incheon International Airport",
+                    "id": "ICN"
+                },
+                {
+                    "duration": 236,
+                    "name": "Los Angeles International Airport",
+                    "id": "LAX"
+                }
+            ],
+            "total_duration": 1562,
+            "carbon_emissions": {
+                "this_flight": 1112000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -6
+            },
+            "price": 3324,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEZMUlRnMk1IeExSVEV4ZkVGQk1qQXhOeG9MQ095a0ZCQUNHZ05WVTBRNEhIRHNwQlE9IixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSUNOIixudWxsLCJLRSIsIjg2MCJdLFsiSUNOIiwiMjAyNC0wNi0xMiIsIkxBWCIsbnVsbCwiS0UiLCIxMSJdLFsiTEFYIiwiMjAyNC0wNi0xMiIsIkFVUyIsbnVsbCwiQUEiLCIyMDE3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 15:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 18:30"
+                    },
+                    "duration": 120,
+                    "airplane": "Boeing 777",
+                    "airline": "Asiana",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/OZ.png",
+                    "travel_class": "Economy",
+                    "flight_number": "OZ 334",
+                    "legroom": "33 in",
+                    "extensions": [
+                        "Above average legroom (33 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 112 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 20:40"
+                    },
+                    "arrival_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 15:10"
+                    },
+                    "duration": 630,
+                    "airplane": "Airbus A350",
+                    "airline": "Asiana",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/OZ.png",
+                    "travel_class": "Economy",
+                    "flight_number": "OZ 212",
+                    "legroom": "32 in",
+                    "extensions": [
+                        "Above average legroom (32 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 591 kg"
+                    ],
+                    "overnight": true,
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 18:06"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 23:36"
+                    },
+                    "duration": 210,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 534",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 208 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 130,
+                    "name": "Incheon International Airport",
+                    "id": "ICN"
+                },
+                {
+                    "duration": 176,
+                    "name": "San Francisco International Airport",
+                    "id": "SFO"
+                }
+            ],
+            "total_duration": 1266,
+            "carbon_emissions": {
+                "this_flight": 913000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -23
+            },
+            "price": 3960,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEZQV2pNek5IeFBXakl4TW54QlV6VXpOQm9MQ0xtVkdCQUNHZ05WVTBRNEhIQzVsUmc9IixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSUNOIixudWxsLCJPWiIsIjMzNCJdLFsiSUNOIiwiMjAyNC0wNi0xMiIsIlNGTyIsbnVsbCwiT1oiLCIyMTIiXSxbIlNGTyIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIkFTIiwiNTM0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 15:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 18:30"
+                    },
+                    "duration": 120,
+                    "airplane": "Boeing 777",
+                    "airline": "Asiana",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/OZ.png",
+                    "travel_class": "Economy",
+                    "flight_number": "OZ 334",
+                    "legroom": "33 in",
+                    "extensions": [
+                        "Above average legroom (33 in)",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 112 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 20:40"
+                    },
+                    "arrival_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 15:10"
+                    },
+                    "duration": 630,
+                    "airplane": "Airbus A350",
+                    "airline": "Asiana",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/OZ.png",
+                    "travel_class": "Economy",
+                    "flight_number": "OZ 212",
+                    "legroom": "32 in",
+                    "extensions": [
+                        "Above average legroom (32 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 591 kg"
+                    ],
+                    "overnight": true,
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "San Francisco International Airport",
+                        "id": "SFO",
+                        "time": "2024-06-12 18:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-13 00:30"
+                    },
+                    "duration": 225,
+                    "airplane": "Airbus A320",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2047",
+                    "ticket_also_sold_by": [
+                        "Asiana"
+                    ],
+                    "legroom": "30 in",
+                    "extensions": [
+                        "Average legroom (30 in)",
+                        "Wi-Fi for a fee",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 221 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 130,
+                    "name": "Incheon International Airport",
+                    "id": "ICN"
+                },
+                {
+                    "duration": 215,
+                    "name": "San Francisco International Airport",
+                    "id": "SFO"
+                }
+            ],
+            "total_duration": 1320,
+            "carbon_emissions": {
+                "this_flight": 925000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": -22
+            },
+            "price": 4331,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEpQV2pNek5IeFBXakl4TW54VlFUSXdORGNhQ3dpS3R4b1FBaG9EVlZORU9CeHdpcmNhIixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSUNOIixudWxsLCJPWiIsIjMzNCJdLFsiSUNOIiwiMjAyNC0wNi0xMiIsIlNGTyIsbnVsbCwiT1oiLCIyMTIiXSxbIlNGTyIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIlVBIiwiMjA0NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Beijing Capital International Airport",
+                        "id": "PEK",
+                        "time": "2024-06-12 10:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 13:50"
+                    },
+                    "duration": 120,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Korean Air",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KE.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KE 860",
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 97 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Incheon International Airport",
+                        "id": "ICN",
+                        "time": "2024-06-12 16:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Hartsfield-Jackson Atlanta International Airport",
+                        "id": "ATL",
+                        "time": "2024-06-12 17:25"
+                    },
+                    "duration": 840,
+                    "airplane": "Airbus A350",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Business Class",
+                    "flight_number": "DL 188",
+                    "ticket_also_sold_by": [
+                        "Korean Air"
+                    ],
+                    "extensions": [
+                        "Individual suite",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 2535 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Hartsfield-Jackson Atlanta International Airport",
+                        "id": "ATL",
+                        "time": "2024-06-12 19:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Austin-Bergstrom International Airport",
+                        "id": "AUS",
+                        "time": "2024-06-12 20:49"
+                    },
+                    "duration": 144,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1170",
+                    "ticket_also_sold_by": [
+                        "Korean Air"
+                    ],
+                    "legroom": "31 in",
+                    "extensions": [
+                        "Average legroom (31 in)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 128 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 155,
+                    "name": "Incheon International Airport",
+                    "id": "ICN"
+                },
+                {
+                    "duration": 120,
+                    "name": "Hartsfield-Jackson Atlanta International Airport",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 1379,
+            "carbon_emissions": {
+                "this_flight": 2761000,
+                "typical_for_this_route": 1188000,
+                "difference_percent": 132
+            },
+            "price": 8230,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "departure_token": "WyJDalJJVkhSWFExQk9kVzlYU2xsQlFuQkdVSGRDUnkwdExTMHRMUzB0YkhKaVkyc3hPVUZCUVVGQlIxcHZhMVZCVDJSWE1YVkJFaEpMUlRnMk1IeEVUREU0T0h4RVRERXhOekFhQ3dpbm5USVFBaG9EVlZORU9CeHdwNTB5IixbWyJQRUsiLCIyMDI0LTA2LTEyIiwiSUNOIixudWxsLCJLRSIsIjg2MCJdLFsiSUNOIiwiMjAyNC0wNi0xMiIsIkFUTCIsbnVsbCwiREwiLCIxODgiXSxbIkFUTCIsIjIwMjQtMDYtMTIiLCJBVVMiLG51bGwsIkRMIiwiMTE3MCJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 1464,
+        "price_level": "typical",
+        "typical_price_range": [
+            1300,
+            1650
+        ],
+        "price_history": [
+            [
+                1712851200,
+                1486
+            ],
+            [
+                1712937600,
+                1485
+            ],
+            [
+                1713024000,
+                1485
+            ],
+            [
+                1713110400,
+                1512
+            ],
+            [
+                1713196800,
+                1479
+            ],
+            [
+                1713283200,
+                1527
+            ],
+            [
+                1713369600,
+                1574
+            ],
+            [
+                1713456000,
+                1574
+            ],
+            [
+                1713542400,
+                1528
+            ],
+            [
+                1713628800,
+                1528
+            ],
+            [
+                1713715200,
+                1558
+            ],
+            [
+                1713801600,
+                1475
+            ],
+            [
+                1713888000,
+                1475
+            ],
+            [
+                1713974400,
+                1474
+            ],
+            [
+                1714060800,
+                1501
+            ],
+            [
+                1714147200,
+                1502
+            ],
+            [
+                1714233600,
+                1533
+            ],
+            [
+                1714320000,
+                1533
+            ],
+            [
+                1714406400,
+                1502
+            ],
+            [
+                1714492800,
+                1624
+            ],
+            [
+                1714579200,
+                1623
+            ],
+            [
+                1714665600,
+                1622
+            ],
+            [
+                1714752000,
+                1622
+            ],
+            [
+                1714838400,
+                1624
+            ],
+            [
+                1714924800,
+                1662
+            ],
+            [
+                1715011200,
+                1624
+            ],
+            [
+                1715097600,
+                1663
+            ],
+            [
+                1715184000,
+                1637
+            ],
+            [
+                1715270400,
+                1594
+            ],
+            [
+                1715356800,
+                1595
+            ],
+            [
+                1715443200,
+                1594
+            ],
+            [
+                1715529600,
+                1660
+            ],
+            [
+                1715616000,
+                1612
+            ],
+            [
+                1715702400,
+                1547
+            ],
+            [
+                1715788800,
+                1547
+            ],
+            [
+                1715875200,
+                1550
+            ],
+            [
+                1715961600,
+                1506
+            ],
+            [
+                1716048000,
+                1549
+            ],
+            [
+                1716134400,
+                1639
+            ],
+            [
+                1716220800,
+                1729
+            ],
+            [
+                1716307200,
+                1547
+            ],
+            [
+                1716393600,
+                1545
+            ],
+            [
+                1716480000,
+                1574
+            ],
+            [
+                1716566400,
+                1604
+            ],
+            [
+                1716652800,
+                1574
+            ],
+            [
+                1716739200,
+                1634
+            ],
+            [
+                1716825600,
+                1727
+            ],
+            [
+                1716912000,
+                1522
+            ],
+            [
+                1716998400,
+                1549
+            ],
+            [
+                1717084800,
+                1467
+            ],
+            [
+                1717171200,
+                1493
+            ],
+            [
+                1717257600,
+                1493
+            ],
+            [
+                1717344000,
+                1555
+            ],
+            [
+                1717430400,
+                1608
+            ],
+            [
+                1717516800,
+                1465
+            ],
+            [
+                1717603200,
+                1464
+            ],
+            [
+                1717689600,
+                1464
+            ],
+            [
+                1717776000,
+                1464
+            ],
+            [
+                1717862400,
+                1464
+            ],
+            [
+                1717948800,
+                1464
+            ],
+            [
+                1718035200,
+                1464
+            ],
+            [
+                1718121600,
+                1464
+            ]
+        ]
+    }
+}
