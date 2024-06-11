@@ -18,7 +18,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "client": "react-scripts start",
+    "server": "cd backend && python3 run.py",
+    "server:setup": "cd backend && python3 -m venv venv && source venv/bin/activate",
+    "server:install": "cd backend && pip install -r requirements.txt",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
