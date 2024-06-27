@@ -14,11 +14,11 @@
         "engine": "google_flights",
         "hl": "en",
         "gl": "us",
-        "departure_id": "PEK",
-        "arrival_id": "AUS",
+        "departure_id": "YYZ",
+        "arrival_id": "LAS",
         "outbound_date": "2024-06-12",
         "return_date": "2024-06-18",
-        "currency": "USD"
+        "currency": "CAD"
     },
     "best_flights": [
         {
