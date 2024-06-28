@@ -1,14 +1,19 @@
-import React from 'react';
-import './App.css';
-import { Hello } from './components/Hello';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const App: React.FC = () => {
+import './App.css'
+import { LandingPage } from "./pages/landing";
+
+function App() {
+
   return (
-    <div>
-      <Hello />
-    </div>
-  );
-};
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
+}
 
-
-export default App;
+export default App
