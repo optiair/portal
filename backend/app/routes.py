@@ -27,6 +27,9 @@ def search():
     response = requests.get(search_url, params=params)
     
     if response.status_code == 200:
+        flight_data = response.json()
         return jsonify(response.json())
     else:
         return jsonify({'error': 'Failed to retrieve data from SerpAPI', 'status_code': response.status_code})
+    
+
