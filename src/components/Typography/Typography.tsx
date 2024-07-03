@@ -8,7 +8,8 @@ type FontVariant =
   | 'medium'
   | 'medium-large'
   | 'large'
-  | 'extra-large';
+  | 'extra-large'
+  | 'extra-extra-large';
 
 interface TypographyProps {
   id?: string;
