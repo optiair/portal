@@ -1,7 +1,14 @@
 .card {
-    border-radius: 15px;
-    border: 2.5px solid var(--LightB, #549CDE);
-    background: #FFF;
-    height: 436px;
-    align-self: stretch;
+  border-radius: 15px;
+  border: 2.5px solid var(--LightB, #549cde);
+  background: #fff;
+  height: 436px;
+  align-self: stretch;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  gap: 24px;
 }

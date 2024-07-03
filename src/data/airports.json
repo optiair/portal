@@ -1,0 +1,42 @@
+[
+  {
+    "value": "YVR",
+    "label": "YVR - Vancouver Airport"
+  },
+  {
+    "value": "YYZ",
+    "label": "YYZ - Toronto Pearson Airport"
+  },
+  {
+    "value": "YUL",
+    "label": "YUL - Montréal-Pierre Elliott Trudeau Airport"
+  },
+  {
+    "value": "YYC",
+    "label": "YYC - Calgary Airport"
+  },
+  {
+    "value": "YEG",
+    "label": "YEG - Edmonton Airport"
+  },
+  {
+    "value": "YOW",
+    "label": "YOW - Ottawa Macdonald-Cartier Airport"
+  },
+  {
+    "value": "YHZ",
+    "label": "YHZ - Halifax Stanfield Airport"
+  },
+  {
+    "value": "YQB",
+    "label": "YQB - Québec City Jean Lesage Airport"
+  },
+  {
+    "value": "YWG",
+    "label": "YWG - Winnipeg James Armstrong Richardson Airport"
+  },
+  {
+    "value": "YYJ",
+    "label": "YYJ - Victoria Airport"
+  }
+]

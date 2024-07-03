@@ -9,6 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { ComboBox } from '@/components/ui/combobox';
+import airports from '@/data/airports.json';
 
 export const Search: React.FC = () => {
   return (
@@ -19,8 +21,22 @@ export const Search: React.FC = () => {
             Where are you flying?
           </Typography>
         </CardTitle>
-        <CardContent>
-          <p>Card Content</p>
+        <CardContent className={styles.cardContent}>
+          <div className={styles.comboBox}>
+            <Typography variant="small" color="#549CDE">
+              From
+            </Typography>
+            <ComboBox combos={airports} objName={'Airport'} />
+          </div>
+          <div className={styles.comboBox}>
+            <Typography variant="small" color="#549CDE">
+              To
+            </Typography>
+            <ComboBox
+              combos={airports}
+              objName={'Airport'}
+            />
+          </div>
         </CardContent>
       </CardHeader>
     </Card>
