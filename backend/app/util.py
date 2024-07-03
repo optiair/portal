@@ -22,6 +22,6 @@ def process_flight_data(flight_data):
                 })
     return processed_data
 
-f = open('data.json')
+f = open("./backend/app/data.json")
 data = json.load(f)
 print(process_flight_data(data))
