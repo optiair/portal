@@ -1,42 +1,52 @@
 [
   {
-    "value": "YVR",
-    "label": "YVR - Vancouver Airport"
+    "value": "YVR - Vancouver Airport",
+    "label": "Vancouver Airport",
+    "iata": "YVR"
   },
   {
-    "value": "YYZ",
-    "label": "YYZ - Toronto Pearson Airport"
+    "value": "YYZ - Toronto Pearson Airport",
+    "label": "Toronto Pearson Airport",
+    "iata": "YYZ"
   },
   {
-    "value": "YUL",
-    "label": "YUL - Montréal-Pierre Elliott Trudeau Airport"
+    "value": "YUL - Montréal-Pierre Elliott Trudeau Airport",
+    "label": "Montréal-Pierre Elliott Trudeau Airport",
+    "iata": "YUL"
   },
   {
-    "value": "YYC",
-    "label": "YYC - Calgary Airport"
+    "value": "YYC - Calgary Airport",
+    "label": "Calgary Airport",
+    "iata": "YYC"
   },
   {
-    "value": "YEG",
-    "label": "YEG - Edmonton Airport"
+    "value": "YEG - Edmonton Airport",
+    "label": "Edmonton Airport",
+    "iata": "YEG"
   },
   {
-    "value": "YOW",
-    "label": "YOW - Ottawa Macdonald-Cartier Airport"
+    "value": "YOW - Ottawa Macdonald-Cartier Airport",
+    "label": "Ottawa Macdonald-Cartier Airport",
+    "iata": "YOW"
   },
   {
-    "value": "YHZ",
-    "label": "YHZ - Halifax Stanfield Airport"
+    "value": "YHZ - Halifax Stanfield Airport",
+    "label": "Halifax Stanfield Airport",
+    "iata": "YHZ"
   },
   {
-    "value": "YQB",
-    "label": "YQB - Québec City Jean Lesage Airport"
+    "value": "YQB - Québec City Jean Lesage Airport",
+    "label": "Québec City Jean Lesage Airport",
+    "iata": "YQB"
   },
   {
-    "value": "YWG",
-    "label": "YWG - Winnipeg James Armstrong Richardson Airport"
+    "value": "YWG - Winnipeg James Armstrong Richardson Airport",
+    "label": "Winnipeg Richardson Airport",
+    "iata": "YWG"
   },
   {
-    "value": "YYJ",
-    "label": "YYJ - Victoria Airport"
+    "value": "YYJ - Victoria Airport",
+    "label": "Victoria Airport",
+    "iata": "YYJ"
   }
 ]

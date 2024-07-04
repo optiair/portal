@@ -26,10 +26,9 @@ type Combo = {
 
 interface ComboBoxProps {
   combos: Combo[];
-  objName: string;
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({ combos, objName }) => {
+const ComboBox: React.FC<ComboBoxProps> = ({ combos }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
@@ -40,19 +39,19 @@ const ComboBox: React.FC<ComboBoxProps> = ({ combos, objName }) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-f justify-between"
         >
           {value
             ? combos.find((combo) => combo.value === value)?.label
-            : `Select ${objName}...`}
+            : `Select an airport`}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[400px] p-0">
         <Command>
-          <CommandInput placeholder={`Search ${objName}...`} />
+          <CommandInput placeholder={`Search for an airport`} />
           <CommandList>
-            <CommandEmpty>No {objName} found.</CommandEmpty>
+            <CommandEmpty>No airport found.</CommandEmpty>
             <CommandGroup>
               {combos.map((combo) => (
                 <CommandItem
