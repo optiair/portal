@@ -71,7 +71,7 @@ def calculate_scores(flights, preferences):
         
         flight['score'] = score
     
-    return flights, avg_price, avg_duration
+    return {flights, avg_price, avg_duration}
 
 #Call the functions and display the best flight
 def main():
