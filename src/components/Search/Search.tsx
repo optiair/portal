@@ -11,7 +11,8 @@ import {
 } from '@/components/ui/card';
 import { ComboBox } from '@/components/ui/combobox';
 import airports from '@/data/airports.json';
-import { DatePicker } from '../ui/datepicker';
+import { DatePicker } from '@/components/ui/datepicker';
+import { Button } from '@/components/ui/button';
 
 export const Search: React.FC = () => {
   return (
@@ -27,13 +28,13 @@ export const Search: React.FC = () => {
             <Typography variant="small" color="#549CDE">
               From
             </Typography>
-            <ComboBox combos={airports} objName={'Airport'} />
+            <ComboBox combos={airports} />
           </div>
           <div className={styles.searchInput}>
             <Typography variant="small" color="#549CDE">
               To
             </Typography>
-            <ComboBox combos={airports} objName={'Airport'} />
+            <ComboBox combos={airports} />
           </div>
           <div className={styles.searchInput}>
             <Typography variant="small" color="#549CDE">
@@ -48,6 +49,16 @@ export const Search: React.FC = () => {
             <DatePicker />
           </div>
         </CardContent>
+        <CardFooter>
+          <div className={styles.cardFooter}>
+            <Button variant="ghost" className={styles.ghostButton}>
+              <Typography variant="small">Preferences</Typography>
+            </Button>
+            <Button className={styles.primaryButton}>
+              <Typography variant="small">Show Flights</Typography>
+            </Button>
+          </div>
+        </CardFooter>
       </CardHeader>
     </Card>
   );

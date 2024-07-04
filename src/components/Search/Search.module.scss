@@ -2,15 +2,29 @@
   border-radius: 15px;
   border: 2.5px solid var(--LightB, #549cde);
   background: #fff;
-  height: 436px;
   align-self: stretch;
 }
 
 .cardContent {
   display: flex;
   flex-wrap: wrap;
-  padding-top: 20px;
+  padding: 24px 0;
   gap: 24px;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 8px;
+}
+
+.ghostButton {
+  color: #4F4F4F;
+}
+
+.primaryButton {
+  background-color: #549CDE;
 }
 
 .searchInput {
