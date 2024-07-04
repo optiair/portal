@@ -60,45 +60,50 @@ export const Results: React.FC = () => {
   const bestScore = Math.max(...MOCK_RESULTS.map((result) => result.score));
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Time
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Airline
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Duration
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Cost
-            </Typography>
-          </TableHead>
-          <TableHead />
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {MOCK_RESULTS.map((result) => (
+    <>
+    <Typography variant="extra-large" color="#4F4F4F">
+            Available Flights
+          </Typography>
+      <Table>
+        <TableHeader>
           <TableRow>
-            <TableCell>{result.time}</TableCell>
-            <TableCell>{result.airline}</TableCell>
-            <TableCell>{result.duration}</TableCell>
-            <TableCell>{result.cost}</TableCell>
-            <TableCell>
-              {result.score === bestScore ? <BestFlightBadge /> : ''}
-            </TableCell>
+            <TableHead>
+              <Typography variant="small" color="#549CDE">
+                Time
+              </Typography>
+            </TableHead>
+            <TableHead>
+              <Typography variant="small" color="#549CDE">
+                Airline
+              </Typography>
+            </TableHead>
+            <TableHead>
+              <Typography variant="small" color="#549CDE">
+                Duration
+              </Typography>
+            </TableHead>
+            <TableHead>
+              <Typography variant="small" color="#549CDE">
+                Cost
+              </Typography>
+            </TableHead>
+            <TableHead />
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  );
+        </TableHeader>
+        <TableBody>
+          {MOCK_RESULTS.map((result) => (
+            <TableRow>
+              <TableCell>{result.time}</TableCell>
+              <TableCell>{result.airline}</TableCell>
+              <TableCell>{result.duration}</TableCell>
+              <TableCell>{result.cost}</TableCell>
+              <TableCell>
+                {result.score === bestScore ? <BestFlightBadge /> : ''}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </>
+  );    
 };
