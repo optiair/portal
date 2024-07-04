@@ -1,9 +1,11 @@
-import React from 'react';
-import styles from './Dashboard.module.scss';
-import { Typography } from '@/components/Typography';
 import { Send } from 'lucide-react';
-import { Search } from '@/components/Search';
+import React from 'react';
+
 import { Results } from '@/components/Results';
+import { Search } from '@/components/Search';
+import { Typography } from '@/components/Typography';
+
+import styles from './Dashboard.module.scss';
 
 export const Dashboard: React.FC = () => {
   return (

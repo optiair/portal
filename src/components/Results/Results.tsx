@@ -1,3 +1,6 @@
+import { PlaneTakeoff } from 'lucide-react';
+
+import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
@@ -7,10 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Typography } from '../Typography';
-import { PlaneTakeoff } from 'lucide-react';
 
+import { Typography } from '../Typography';
 import styles from './Results.module.scss';
 
 const MOCK_RESULTS = [
@@ -48,7 +49,7 @@ const BestFlightBadge: React.FC = () => {
   return (
     <Badge>
       <div className={styles.badge}>
-        <PlaneTakeoff size={16}/>
+        <PlaneTakeoff size={16} />
         <Typography variant="tiny">Best Flight</Typography>
       </div>
     </Badge>

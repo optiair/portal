@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Search.module.scss';
+
 import { Typography } from '@/components/Typography';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -10,9 +11,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { ComboBox } from '@/components/ui/combobox';
-import airports from '@/data/airports.json';
 import { DatePicker } from '@/components/ui/datepicker';
-import { Button } from '@/components/ui/button';
+import airports from '@/data/airports.json';
+
+import styles from './Search.module.scss';
 
 export const Search: React.FC = () => {
   return (

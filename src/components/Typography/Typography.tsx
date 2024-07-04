@@ -1,4 +1,5 @@
 import './Typography.scss';
+
 import { ReactNode } from 'react';
 
 type FontVariant =
@@ -34,11 +35,7 @@ export const Typography: React.FC<TypographyProps> = ({
   children,
 }) => {
   return (
-    <p
-      id={id}
-      className={variant}
-      style={{ color }}
-    >
+    <p id={id} className={variant} style={{ color }}>
       {children}
     </p>
   );
