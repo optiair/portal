@@ -1,4 +1,10 @@
 from flask import Blueprint, jsonify
+from dotenv import load_dotenv
+import requests
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 main = Blueprint('main', __name__)
 
@@ -8,8 +14,7 @@ def hello():
 
 @main.route('/api/search', methods=['GET'])
 def search():
-    
-    api_key = '94def37c570df053630ad99518df19b761fbf611a3157874339cc8230a787d05'  # Replace with your SerpAPI key
+    api_key = os.getenv('SERPAPI_KEY')
     search_url = f'https://serpapi.com/search'
     
     params = {
