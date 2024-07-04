@@ -3,6 +3,7 @@ import styles from './Dashboard.module.scss';
 import { Typography } from '@/components/Typography';
 import { Send } from 'lucide-react';
 import { Search } from '@/components/Search';
+import { Results } from '@/components/Results';
 
 export const Dashboard: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const Dashboard: React.FC = () => {
 
       <div className={styles.content}>
         <Search />
+        <Results />
       </div>
     </div>
   );

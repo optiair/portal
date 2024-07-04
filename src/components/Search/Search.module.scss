@@ -1,8 +1,7 @@
 .card {
-  border-radius: 15px;
-  border: 2.5px solid var(--LightB, #549cde);
-  background: #fff;
   align-self: stretch;
+  background: #fff;
+  border-radius: 15px;
 }
 
 .cardContent {
@@ -20,11 +19,11 @@
 }
 
 .ghostButton {
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 .primaryButton {
-  background-color: #549CDE;
+  background-color: #549cde;
 }
 
 .searchInput {
