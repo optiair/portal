@@ -1,6 +1,8 @@
 import json
 from datetime import datetime, timedelta
 
+#Function Purpose: processes the data from the SerpAPI
+#Ensures that the duration time can be calculated with, and determine if a flight is classified as a "Red-Eye"
 def process_flight_data(flight_data):
     processed_data = []
     
@@ -33,12 +35,14 @@ def process_flight_data(flight_data):
                 })
     return processed_data
 
+#Placeholder, getting the user's preferences for cost, duration and red-eye
 def get_user_preferences():
     no_redeye_importance = int(input("How important is avoiding red-eye flights (1-5)? "))
     price_importance = int(input("How important is the price (1-5)? "))
     duration_importance = int(input("How important is the duration of the flight (1-5)? "))
     return no_redeye_importance, price_importance, duration_importance
 
+#Calculate the scores using the user's inputted preferences and the flights' comparsion with the average calculated price and duration
 def calculate_scores(flights, preferences):
     no_redeye_importance, price_importance, duration_importance = preferences
     avg_price = sum(flight['price'] for flight in flights) / len(flights)
@@ -47,19 +51,19 @@ def calculate_scores(flights, preferences):
     scores = []
     for flight in flights:
         score = 0
-        # Determine Red-Eye score
+        #Determine no_redeye_importance
         if flight['is_redeye']:
             score += -1 * no_redeye_importance
         else:
             score += 1 * no_redeye_importance
         
-        # Determine Price Preference score
+        #Determine price preference score
         if flight['price'] > avg_price:
             score += -1 * price_importance
         else:
             score += 1 * price_importance
         
-        # Determine Duration Preference score
+        #Determine duration preference score
         if flight['duration'] > avg_duration:
             score += -1 * duration_importance
         else:
@@ -69,6 +73,7 @@ def calculate_scores(flights, preferences):
     
     return scores, avg_price, avg_duration
 
+#Call the functions and display the best flight
 def main():
     with open("./backend/app/data.json") as f:
         data = json.load(f)
