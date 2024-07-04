@@ -1,0 +1,35 @@
+.card {
+  align-self: stretch;
+  background: #fff;
+  border-radius: 15px;
+}
+
+.cardContent {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  gap: 24px;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 8px;
+}
+
+.ghostButton {
+  color: #4f4f4f;
+}
+
+.primaryButton {
+  background-color: #549cde;
+}
+
+.searchInput {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+  min-width: 200px;
+}
