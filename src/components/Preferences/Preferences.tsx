@@ -9,10 +9,37 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 import styles from './Preferences.module.scss';
+
+export const RadioOptions: React.FC = () => {
+  return (
+    <RadioGroup defaultValue="option-three" className="grid-flow-col">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-one" id="option-one" />
+        <Label htmlFor="option-two">1</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-two" id="option-two" />
+        <Label htmlFor="option-two">2</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-three" id="option-three" />
+        <Label htmlFor="option-two">3</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-four" id="option-four" />
+        <Label htmlFor="option-two">4</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option-five" id="option-five" />
+        <Label htmlFor="option-two">5</Label>
+      </div>
+    </RadioGroup>
+  );
+};
 
 export const Preferences: React.FC = () => {
   return (
@@ -24,31 +51,38 @@ export const Preferences: React.FC = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
+          <div className={styles.header}>
+            <DialogTitle>Search Preferences</DialogTitle>
+            <DialogDescription>
+              <div className={styles.description}>
+                <Typography variant="small" color="#4F4F4F">
+                  Please enter your search preferences here.
+                </Typography>
+                <Typography variant="small" color="#4F4F4F">
+                  1 is least preferred, 5 is most preferred.
+                </Typography>
+              </div>
+            </DialogDescription>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
+        </DialogHeader>
+        <div className={styles.container}>
+          <div className={styles.radioContainer}>
+            <Typography variant="small" color="#549CDE">
+              Cost of ticket
+            </Typography>
+            <RadioOptions />
+          </div>
+          <div className={styles.radioContainer}>
+            <Typography variant="small" color="#549CDE">
+              Duration of flight
+            </Typography>
+            <RadioOptions />
+          </div>
+          <div className={styles.radioContainer}>
+            <Typography variant="small" color="#549CDE">
+              Redeye
+            </Typography>
+            <RadioOptions />
           </div>
         </div>
         <DialogFooter>
