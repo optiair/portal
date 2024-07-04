@@ -69,9 +69,9 @@ def calculate_scores(flights, preferences):
         else:
             score += 1 * duration_importance
         
-        scores.append((flight['flight_number'], score))
+        flight['score'] = score
     
-    return scores, avg_price, avg_duration
+    return flights, avg_price, avg_duration
 
 #Call the functions and display the best flight
 def main():
@@ -95,13 +95,14 @@ def main():
         print(f"  Price: ${flight['price']} {flight['currency']}")
         print(f"  Airline: {flight['airline']}")
         print(f"  Red-eye: {'Yes' if flight['is_redeye'] else 'No'}")
+        print(f"  Score: {flight['score']}")
         print()
     
-    for flight_number, score in scores:
-        print(f"Score for {flight_number}: {score}")
+    for flight in flights:  
+        print(f"Score for {flight['flight_number']}: {flight['score']}")
     
-    best_flight = max(scores, key=lambda x: x[1])
-    print(f"\nBest flight based on your preferences: {best_flight[0]}")
+    best_flight = max(flights, key=lambda x: x['score'])
+    print(f"\nBest flight based on your preferences: {best_flight['flight_number']}")
 
 if __name__ == "__main__":
     main()
