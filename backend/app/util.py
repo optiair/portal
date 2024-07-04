@@ -7,11 +7,11 @@ def process_flight_data(flight_data):
     if 'best_flights' in flight_data:
         for best_flight in flight_data['best_flights']:
             for flight in best_flight['flights']:
-                # Adjusting the datetime format to match the provided data
+                #Adjust the time, because it is coming from a string!!
                 departure_time = datetime.strptime(flight['departure_airport']['time'], '%Y-%m-%d %H:%M')
                 arrival_time = datetime.strptime(flight['arrival_airport']['time'], '%Y-%m-%d %H:%M')
                 
-                # Adjust for overnight flights
+                #Fix for overnight flights
                 if arrival_time < departure_time:
                     arrival_time += timedelta(days=1)
                 
