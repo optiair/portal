@@ -1,3 +1,5 @@
+import { Info } from 'lucide-react';
+
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
@@ -67,21 +69,30 @@ export const Preferences: React.FC = () => {
         </DialogHeader>
         <div className={styles.container}>
           <div className={styles.radioContainer}>
-            <Typography variant="small" color="#549CDE">
-              Cost of ticket
-            </Typography>
+            <div className={styles.radioHeader}>
+              <Typography variant="small" color="#549CDE">
+                Cost of ticket
+              </Typography>
+              <Info size={18} className={styles.icon} />
+            </div>
             <RadioOptions />
           </div>
           <div className={styles.radioContainer}>
-            <Typography variant="small" color="#549CDE">
-              Duration of flight
-            </Typography>
+            <div className={styles.radioHeader}>
+              <Typography variant="small" color="#549CDE">
+                Duration of flight
+              </Typography>
+              <Info size={18} className={styles.icon} />
+            </div>
             <RadioOptions />
           </div>
           <div className={styles.radioContainer}>
-            <Typography variant="small" color="#549CDE">
-              Redeye
-            </Typography>
+            <div className={styles.radioHeader}>
+              <Typography variant="small" color="#549CDE">
+                Redeye flight
+              </Typography>
+              <Info size={18} className={styles.icon} />
+            </div>
             <RadioOptions />
           </div>
         </div>

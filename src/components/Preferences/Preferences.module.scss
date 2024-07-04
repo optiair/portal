@@ -21,6 +21,17 @@
   margin-bottom: 16px;
 }
 
+.radioHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 6px;
+}
+
+.icon {
+  color: #4F4F4F;
+}
+
 .description {
   display: flex;
   flex-direction: column;
