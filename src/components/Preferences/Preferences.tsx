@@ -73,7 +73,7 @@ export const Preferences: React.FC = () => {
               <Typography variant="small" color="#549CDE">
                 Cost of ticket
               </Typography>
-              <Info size={18} className={styles.icon} />
+              {/* <Info size={18} className={styles.icon} /> */}
             </div>
             <RadioOptions />
           </div>
@@ -82,7 +82,7 @@ export const Preferences: React.FC = () => {
               <Typography variant="small" color="#549CDE">
                 Duration of flight
               </Typography>
-              <Info size={18} className={styles.icon} />
+              {/* <Info size={18} className={styles.icon} /> */}
             </div>
             <RadioOptions />
           </div>
@@ -91,7 +91,7 @@ export const Preferences: React.FC = () => {
               <Typography variant="small" color="#549CDE">
                 Redeye flight
               </Typography>
-              <Info size={18} className={styles.icon} />
+              {/* <Info size={18} className={styles.icon} /> */}
             </div>
             <RadioOptions />
           </div>
