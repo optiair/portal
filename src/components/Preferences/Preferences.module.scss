@@ -1,0 +1,39 @@
+.ghostButton {
+  color: #4f4f4f;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.radioHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 6px;
+}
+
+.icon {
+  color: #4F4F4F;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { Preferences } from '@/components/Preferences';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -53,9 +53,7 @@ export const Search: React.FC = () => {
         </CardContent>
         <CardFooter>
           <div className={styles.cardFooter}>
-            <Button variant="ghost" className={styles.ghostButton}>
-              <Typography variant="small">Preferences</Typography>
-            </Button>
+            <Preferences />
             <Button className={styles.primaryButton}>
               <Typography variant="small">Show Flights</Typography>
             </Button>
