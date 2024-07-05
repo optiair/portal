@@ -26,11 +26,19 @@ type Combo = {
 
 interface ComboBoxProps {
   combos: Combo[];
+  onValueChange: (value: string) => void;
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({ combos }) => {
+const ComboBox: React.FC<ComboBoxProps> = ({ combos, onValueChange }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
+
+  const handleSelect = (currentValue: string) => {
+    const newValue = currentValue === value ? '' : currentValue;
+    setValue(newValue);
+    onValueChange(newValue);
+    setOpen(false);
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -57,10 +65,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ combos }) => {
                 <CommandItem
                   key={combo.value}
                   value={combo.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? '' : currentValue);
-                    setOpen(false);
-                  }}
+                  onSelect={handleSelect}
                 >
                   <Check
                     className={cn(

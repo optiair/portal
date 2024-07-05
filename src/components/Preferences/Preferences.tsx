@@ -1,5 +1,7 @@
 import { Info } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
+import { PreferencesType } from '@/components/types';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,34 +18,65 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 import styles from './Preferences.module.scss';
 
-export const RadioOptions: React.FC = () => {
+interface RadioOptionsProps {
+  defaultValue: string;
+  onChange: (value: string) => void;
+}
+
+const RadioOptions: React.FC<RadioOptionsProps> = ({
+  defaultValue,
+  onChange,
+}) => {
   return (
-    <RadioGroup defaultValue="option-three" className="grid-flow-col">
+    <RadioGroup
+      defaultValue={defaultValue}
+      className="grid-flow-col"
+      onValueChange={onChange}
+    >
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-one" id="option-one" />
-        <Label htmlFor="option-two">1</Label>
+        <RadioGroupItem value="1" id="option-one" />
+        <Label htmlFor="option-one">1</Label>
       </div>
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-two" id="option-two" />
+        <RadioGroupItem value="2" id="option-two" />
         <Label htmlFor="option-two">2</Label>
       </div>
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-three" id="option-three" />
-        <Label htmlFor="option-two">3</Label>
+        <RadioGroupItem value="3" id="option-three" />
+        <Label htmlFor="option-three">3</Label>
       </div>
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-four" id="option-four" />
-        <Label htmlFor="option-two">4</Label>
+        <RadioGroupItem value="4" id="option-four" />
+        <Label htmlFor="option-four">4</Label>
       </div>
       <div className="flex items-center space-x-2">
-        <RadioGroupItem value="option-five" id="option-five" />
-        <Label htmlFor="option-two">5</Label>
+        <RadioGroupItem value="5" id="option-five" />
+        <Label htmlFor="option-five">5</Label>
       </div>
     </RadioGroup>
   );
 };
 
-export const Preferences: React.FC = () => {
+interface PreferencesProps {
+  onPreferencesChange: (preferences: PreferencesType) => void;
+}
+
+const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
+  const [preferences, setPreferences] = useState<PreferencesType>({
+    costPreference: 3,
+    durationPreference: 3,
+    redeyePreference: 3,
+  });
+
+  useEffect(() => {
+    onPreferencesChange(preferences);
+  }, [preferences, onPreferencesChange]);
+
+  const handlePreferenceChange =
+    (key: keyof PreferencesType) => (value: string) => {
+      setPreferences((prev) => ({ ...prev, [key]: parseInt(value, 10) }));
+    };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -75,7 +108,10 @@ export const Preferences: React.FC = () => {
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
-            <RadioOptions />
+            <RadioOptions
+              defaultValue={preferences.costPreference.toString()}
+              onChange={handlePreferenceChange('costPreference')}
+            />
           </div>
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
@@ -84,7 +120,10 @@ export const Preferences: React.FC = () => {
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
-            <RadioOptions />
+            <RadioOptions
+              defaultValue={preferences.durationPreference.toString()}
+              onChange={handlePreferenceChange('durationPreference')}
+            />
           </div>
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
@@ -93,7 +132,10 @@ export const Preferences: React.FC = () => {
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
-            <RadioOptions />
+            <RadioOptions
+              defaultValue={preferences.redeyePreference.toString()}
+              onChange={handlePreferenceChange('redeyePreference')}
+            />
           </div>
         </div>
         <DialogFooter>
@@ -103,3 +145,5 @@ export const Preferences: React.FC = () => {
     </Dialog>
   );
 };
+
+export { Preferences };
