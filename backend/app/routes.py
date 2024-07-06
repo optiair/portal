@@ -1,7 +1,9 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from dotenv import load_dotenv
 import requests
 import os
+
+from backend.app.util import validate_search
 
 # Load environment variables from .env file
 load_dotenv()
@@ -16,16 +18,25 @@ def hello():
 def search():
     api_key = os.getenv('SERPAPI_KEY')
     search_url = f'https://serpapi.com/search'
-    
+
+    departure_id = request.args.get('departure_id')
+    arrival_id = request.args.get('arrival_id')
+    outbound_date = request.args.get('outbound_date')
+    return_date = request.args.get('return_date')
+
+    validation_error = validate_search(departure_id, arrival_id, outbound_date, return_date)
+    if validation_error:
+        return jsonify({'error': validation_error['error']}), validation_error['status_code']
+
     params = {
         'api_key': api_key,
         "engine": "google_flights",
         "hl": "en",
         "gl": "us",
-        "departure_id": "YYZ", #User Inputs
-        "arrival_id": "LAS", #User Inputs 
-        "outbound_date": "2024-08-12", #This data will be user inputted. 
-        "return_date": "2024-08-20",
+        "departure_id": departure_id,
+        "arrival_id": arrival_id,
+        "outbound_date": outbound_date,
+        "return_date": return_date,
         "currency": "CAD"
     }
     

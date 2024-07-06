@@ -1,6 +1,33 @@
 import json
 from datetime import datetime, timedelta
 
+def validate_search(departure_id, arrival_id, outbound_date, return_date):
+    missing_params = []
+    if not departure_id:
+        missing_params.append('departure_id')
+    if not arrival_id:
+        missing_params.append('arrival_id')
+    if not outbound_date:
+        missing_params.append('outbound_date')
+
+    if missing_params:
+        return {'error': f'Missing required parameters: {", ".join(missing_params)}', 'status_code': 400}
+
+    if departure_id == arrival_id:
+        return {'error': 'departure_id and arrival_id must be different', 'status_code': 400}
+
+    if return_date:
+        try:
+            outbound_date_obj = datetime.strptime(outbound_date, '%Y-%m-%d')
+            return_date_obj = datetime.strptime(return_date, '%Y-%m-%d')
+            if outbound_date_obj >= return_date_obj:
+                return {'error': 'outbound_date must be before return_date', 'status_code': 400}
+        except ValueError:
+            return {'error': 'Invalid date format. Use YYYY-MM-DD.', 'status_code': 400}
+
+    # no errors
+    return None
+
 #Function Purpose: processes the data from the SerpAPI
 #Ensures that the duration time can be calculated with, and determine if a flight is classified as a "Red-Eye"
 def process_flight_data(flight_data):
