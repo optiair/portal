@@ -34,7 +34,7 @@ def process_flight_data(flight_data):
                         "duration": duration,
                         "airline": flight["airline"],
                         "flight_number": flight["flight_number"],
-                        "price": best_flight["price"],
+                        "cost": best_flight["price"],
                         "currency": flight_data["search_parameters"]["currency"],
                         "is_redeye": is_redeye,
                     }
@@ -42,22 +42,22 @@ def process_flight_data(flight_data):
     return processed_data
 
 
-# Calculate the scores using the user's inputted preferences and the flights' comparsion with the average calculated price and duration
+# Calculate the scores using the user's inputted preferences and the flights' comparsion with the average calculated cost and duration
 def calculate_scores(flights, preferences):
     redeye_preference, cost_preference, duration_preference = (
         preferences["cost_preference"],
         preferences["duration_preference"],
         preferences["redeye_preference"],
     )
-    avg_price = sum(flight["price"] for flight in flights) / len(flights)
+    avg_cost = sum(flight["cost"] for flight in flights) / len(flights)
     avg_duration = sum(flight["duration"] for flight in flights) / len(flights)
 
     scores = []
     for flight in flights:
         bin_scores = []
         score = 0
-        # Determine price preference score
-        if flight["price"] > avg_price:
+        # Determine cost preference score
+        if flight["cost"] > avg_cost:
             bin_scores.append(-1)
             score += -1 * cost_preference
         else:
@@ -83,4 +83,4 @@ def calculate_scores(flights, preferences):
             bin_scores.append(1)
             score += 1 * redeye_preference
 
-    return {"flights": flights, "avg_price": avg_price, "avg_duration": avg_duration}
+    return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}

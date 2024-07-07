@@ -1,5 +1,7 @@
 import { PlaneTakeoff } from 'lucide-react';
+import { useContext } from 'react';
 
+import { FlightContext } from '@/App';
 import { Badge } from '@/components/ui/badge';
 import {
   Table,
@@ -14,37 +16,6 @@ import {
 import { Typography } from '../Typography';
 import styles from './Results.module.scss';
 
-const MOCK_RESULTS = [
-  {
-    time: '8:00 AM - 10:00 AM',
-    airline: 'Air Canada',
-    duration: '4h 15m',
-    cost: '$367',
-    score: 14.5,
-  },
-  {
-    time: '11:30 AM - 2:45 PM',
-    airline: 'WestJet',
-    duration: '3h 30m',
-    cost: '$299',
-    score: 10,
-  },
-  {
-    time: '1:00 PM - 4:20 PM',
-    airline: 'Porter Airlines',
-    duration: '3h 50m',
-    cost: '$320',
-    score: 12.5,
-  },
-  {
-    time: '6:00 PM - 8:10 PM',
-    airline: 'Air Transat',
-    duration: '2h 50m',
-    cost: '$280',
-    score: 8,
-  },
-];
-
 const BestFlightBadge: React.FC = () => {
   return (
     <Badge>
@@ -57,7 +28,8 @@ const BestFlightBadge: React.FC = () => {
 };
 
 export const Results: React.FC = () => {
-  const bestScore = Math.max(...MOCK_RESULTS.map((result) => result.score));
+  const { flights, setFlights } = useContext(FlightContext);
+  const bestScore = Math.max(...flights.map((result) => result.score));
 
   return (
     <Table>
@@ -65,17 +37,17 @@ export const Results: React.FC = () => {
         <TableRow>
           <TableHead>
             <Typography variant="small" color="#549CDE">
-              Time
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
               Airline
             </Typography>
           </TableHead>
           <TableHead>
             <Typography variant="small" color="#549CDE">
-              Duration
+              Departure
+            </Typography>
+          </TableHead>
+          <TableHead>
+            <Typography variant="small" color="#549CDE">
+              Arrival
             </Typography>
           </TableHead>
           <TableHead>
@@ -87,11 +59,11 @@ export const Results: React.FC = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {MOCK_RESULTS.map((result) => (
+        {flights.map((result) => (
           <TableRow>
-            <TableCell>{result.time}</TableCell>
             <TableCell>{result.airline}</TableCell>
-            <TableCell>{result.duration}</TableCell>
+            <TableCell>{result.departure_time}</TableCell>
+            <TableCell>{result.arrival_time}</TableCell>
             <TableCell>{result.cost}</TableCell>
             <TableCell>
               {result.score === bestScore ? <BestFlightBadge /> : ''}

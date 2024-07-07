@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
+import { FlightContext } from '@/App';
 import { Preferences } from '@/components/Preferences';
 import { PreferencesType } from '@/components/types';
 import { Typography } from '@/components/Typography';
@@ -18,6 +19,8 @@ import airports from '@/data/airports.json';
 import styles from './Search.module.scss';
 
 export const Search: React.FC = () => {
+  const { flights, setFlights } = useContext(FlightContext);
+
   // Airports
   const [origin, setOrigin] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
@@ -82,6 +85,7 @@ export const Search: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const data = await handleGetFlights();
+    setFlights(data.flights);
   };
 
   return (
