@@ -44,7 +44,7 @@ def process_flight_data(flight_data):
 
 # Calculate the scores using the user's inputted preferences and the flights' comparsion with the average calculated cost and duration
 def calculate_scores(flights, preferences):
-    redeye_preference, cost_preference, duration_preference = (
+    cost_preference, duration_preference, redeye_preference = (
         preferences["cost_preference"],
         preferences["duration_preference"],
         preferences["redeye_preference"],
@@ -52,7 +52,6 @@ def calculate_scores(flights, preferences):
     avg_cost = sum(flight["cost"] for flight in flights) / len(flights)
     avg_duration = sum(flight["duration"] for flight in flights) / len(flights)
 
-    scores = []
     for flight in flights:
         bin_scores = []
         score = 0
@@ -72,9 +71,6 @@ def calculate_scores(flights, preferences):
             bin_scores.append(1)
             score += 1 * duration_preference
 
-        flight["bin_score"] = bin_scores
-        flight["score"] = score
-
         # Determine redeye_preference
         if flight["is_redeye"]:
             bin_scores.append(-1)
@@ -82,5 +78,8 @@ def calculate_scores(flights, preferences):
         else:
             bin_scores.append(1)
             score += 1 * redeye_preference
+
+        flight["bin_score"] = bin_scores
+        flight["score"] = score
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}
