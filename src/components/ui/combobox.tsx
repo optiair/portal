@@ -1,5 +1,3 @@
-'use client';
-
 import { Check, ChevronsUpDown } from 'lucide-react';
 import * as React from 'react';
 
@@ -22,22 +20,29 @@ import { cn } from '@/lib/utils';
 type Combo = {
   value: string;
   label: string;
+  iata: string;
 };
 
 interface ComboBoxProps {
   combos: Combo[];
-  onValueChange: (value: string) => void;
+  onValueChange: (iata: string) => void;
 }
 
 const ComboBox: React.FC<ComboBoxProps> = ({ combos, onValueChange }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
-  const handleSelect = (currentValue: string) => {
+  const handleSelect = (currentValue: string, currentIata: string) => {
     const newValue = currentValue === value ? '' : currentValue;
     setValue(newValue);
-    onValueChange(newValue);
+    onValueChange(currentIata);
     setOpen(false);
+
+    // Log selected combo
+    const selectedCombo = combos.find((combo) => combo.value === newValue);
+    if (selectedCombo) {
+      console.log('Selected combo:', selectedCombo);
+    }
   };
 
   return (
@@ -65,7 +70,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ combos, onValueChange }) => {
                 <CommandItem
                   key={combo.value}
                   value={combo.value}
-                  onSelect={handleSelect}
+                  onSelect={() => handleSelect(combo.value, combo.iata)}
                 >
                   <Check
                     className={cn(

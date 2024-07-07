@@ -50,6 +50,8 @@ def search():
         "currency": "CAD",
     }
 
+    print(params)
+
     try:
         response = requests.get(search_url, params=params)
     except Exception as e:
