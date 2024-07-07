@@ -2,18 +2,17 @@ import { PlaneTakeoff } from 'lucide-react';
 import { useContext } from 'react';
 
 import { FlightContext } from '@/App';
+import { Typography } from '@/components/Typography';
 import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
 
-import { Typography } from '../Typography';
 import styles from './Results.module.scss';
 
 const BestFlightBadge: React.FC = () => {
@@ -42,6 +41,11 @@ export const Results: React.FC = () => {
           </TableHead>
           <TableHead>
             <Typography variant="small" color="#549CDE">
+              Flight Number
+            </Typography>
+          </TableHead>
+          <TableHead>
+            <Typography variant="small" color="#549CDE">
               Departure
             </Typography>
           </TableHead>
@@ -55,16 +59,23 @@ export const Results: React.FC = () => {
               Cost
             </Typography>
           </TableHead>
+          <TableHead>
+            <Typography variant="small" color="#549CDE">
+              Score
+            </Typography>
+          </TableHead>
           <TableHead />
         </TableRow>
       </TableHeader>
       <TableBody>
         {flights.map((result) => (
-          <TableRow>
+          <TableRow key={result.flight_number}>
             <TableCell>{result.airline}</TableCell>
+            <TableCell>{result.flight_number}</TableCell>
             <TableCell>{result.departure_time}</TableCell>
             <TableCell>{result.arrival_time}</TableCell>
-            <TableCell>{result.cost}</TableCell>
+            <TableCell>${result.cost} CAD</TableCell>
+            <TableCell>{result.score}</TableCell>
             <TableCell>
               {result.score === bestScore ? <BestFlightBadge /> : ''}
             </TableCell>
