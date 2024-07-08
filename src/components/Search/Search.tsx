@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect,useState } from 'react';
 
 import { FlightContext } from '@/App';
 import { Preferences } from '@/components/Preferences';
@@ -39,13 +39,24 @@ export const Search: React.FC = () => {
   // Dates
   const [departureDate, setDepartureDate] = useState<Date>();
   const [returnDate, setReturnDate] = useState<Date>();
+  const [dateError, setDateError] = useState<boolean>(false);
 
   const handleDepartureDateChange = (newDate: Date) => {
     setDepartureDate(newDate);
+    if (returnDate && newDate > returnDate) {
+      setDateError(true);
+    } else {
+      setDateError(false);
+    }
   };
 
   const handleReturnDateChange = (newDate: Date) => {
     setReturnDate(newDate);
+    if (departureDate && newDate < departureDate) {
+      setDateError(true);
+    } else {
+      setDateError(false);
+    }
   };
 
   // Preferences
@@ -88,6 +99,9 @@ export const Search: React.FC = () => {
     setFlights(data.flights);
   };
 
+  const isButtonEnabled =
+    origin && destination && departureDate && !airportError && !dateError;
+
   return (
     <Card className={styles.card}>
       <CardHeader>
@@ -103,8 +117,8 @@ export const Search: React.FC = () => {
             </Typography>
             <ComboBox combos={airports} onValueChange={handleOriginChange} />
             {airportError && (
-              <Typography variant="small" color="#FF6347">
-                Origin and destination airports be the same.
+              <Typography variant="tiny" color="#FF6347">
+                Origin and destination airports cannot be the same.
               </Typography>
             )}
           </div>
@@ -128,12 +142,21 @@ export const Search: React.FC = () => {
               Return
             </Typography>
             <DatePicker onDateChange={handleReturnDateChange} />
+            {dateError && (
+              <Typography variant="tiny" color="#FF6347">
+                Return date cannot be before departure date.
+              </Typography>
+            )}
           </div>
         </CardContent>
         <CardFooter>
           <div className={styles.cardFooter}>
             <Preferences onPreferencesChange={handlePreferencesChange} />
-            <Button className={styles.primaryButton} onClick={handleSubmit}>
+            <Button
+              className={styles.primaryButton}
+              onClick={handleSubmit}
+              disabled={!isButtonEnabled}
+            >
               <Typography variant="small">Show Flights</Typography>
             </Button>
           </div>

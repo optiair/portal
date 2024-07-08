@@ -37,12 +37,6 @@ const ComboBox: React.FC<ComboBoxProps> = ({ combos, onValueChange }) => {
     setValue(newValue);
     onValueChange(currentIata);
     setOpen(false);
-
-    // Log selected combo
-    const selectedCombo = combos.find((combo) => combo.value === newValue);
-    if (selectedCombo) {
-      console.log('Selected combo:', selectedCombo);
-    }
   };
 
   return (
