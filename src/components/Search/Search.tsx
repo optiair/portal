@@ -1,5 +1,4 @@
-import React, { useContext, useEffect,useState } from 'react';
-
+import React, { useContext, useState } from 'react';
 import { FlightContext } from '@/App';
 import { Preferences } from '@/components/Preferences';
 import { PreferencesType } from '@/components/types';
@@ -15,6 +14,7 @@ import {
 import { ComboBox } from '@/components/ui/combobox';
 import { DatePicker } from '@/components/ui/datepicker';
 import airports from '@/data/airports.json';
+import { LoaderCircle } from 'lucide-react';
 
 import styles from './Search.module.scss';
 
@@ -27,12 +27,12 @@ export const Search: React.FC = () => {
   const [airportError, setAirportError] = useState<boolean>(false);
 
   const handleOriginChange = (newValue: string) => {
-    setAirportError(newValue == destination);
+    setAirportError(newValue === destination);
     setOrigin(newValue);
   };
 
   const handleDestinationChange = (newValue: string) => {
-    setAirportError(newValue == origin);
+    setAirportError(newValue === origin);
     setDestination(newValue);
   };
 
@@ -66,6 +66,8 @@ export const Search: React.FC = () => {
     setPreferences(newPreferences);
   };
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleGetFlights = async () => {
     const apiUrl = 'http://127.0.0.1:5000/api/search';
     const params = new URLSearchParams({
@@ -78,6 +80,8 @@ export const Search: React.FC = () => {
       redeye_preference: preferences?.redeyePreference.toString() || '0',
     });
 
+    setIsLoading(true);
+
     try {
       const response = await fetch(`${apiUrl}?${params.toString()}`);
 
@@ -86,9 +90,11 @@ export const Search: React.FC = () => {
       }
 
       const data = await response.json();
+      setIsLoading(false);
       return data;
     } catch (error) {
       console.error('Error fetching flights:', error);
+      setIsLoading(false);
       return null;
     }
   };
@@ -96,9 +102,12 @@ export const Search: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const data = await handleGetFlights();
-    setFlights(data.flights);
+    if (data) {
+      setFlights(data.flights);
+    }
   };
 
+  // Button enabled state
   const isButtonEnabled =
     origin && destination && departureDate && !airportError && !dateError;
 
@@ -117,7 +126,7 @@ export const Search: React.FC = () => {
             </Typography>
             <ComboBox combos={airports} onValueChange={handleOriginChange} />
             {airportError && (
-              <Typography variant="tiny" color="#FF6347">
+              <Typography variant="small" color="#FF6347">
                 Origin and destination airports cannot be the same.
               </Typography>
             )}
@@ -143,7 +152,7 @@ export const Search: React.FC = () => {
             </Typography>
             <DatePicker onDateChange={handleReturnDateChange} />
             {dateError && (
-              <Typography variant="tiny" color="#FF6347">
+              <Typography variant="small" color="#FF6347">
                 Return date cannot be before departure date.
               </Typography>
             )}
@@ -155,9 +164,13 @@ export const Search: React.FC = () => {
             <Button
               className={styles.primaryButton}
               onClick={handleSubmit}
-              disabled={!isButtonEnabled}
+              disabled={!isButtonEnabled || isLoading}
             >
-              <Typography variant="small">Show Flights</Typography>
+              {isLoading ? (
+                <LoaderCircle className={styles.loader} />
+              ) : (
+                <Typography variant="small">Show Flights</Typography>
+              )}
             </Button>
           </div>
         </CardFooter>
