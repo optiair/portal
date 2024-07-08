@@ -34,6 +34,12 @@ const formatToEST = (dateString: string) => {
   return format(zonedDate, 'hh:mm aaaa'); // 12-hour format
 };
 
+const convertMinutesToHoursAndMinutes = (minutes: number) => {
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  return `${hours}h${remainingMinutes.toString().padStart(2, '0')}min`;
+};
+
 export const Results: React.FC = () => {
   const { flights } = useContext(FlightContext);
   const bestScore = Math.max(...flights.map((result) => result.score));
@@ -68,7 +74,9 @@ export const Results: React.FC = () => {
             <TableCell>{result.airline}</TableCell>
             <TableCell>{result.flight_number}</TableCell>
             <TableCell>{formatToEST(result.departure_time)}</TableCell>
-            <TableCell>{result.duration}</TableCell>
+            <TableCell>
+              {convertMinutesToHoursAndMinutes(result.duration)}
+            </TableCell>
             <TableCell>{formatToEST(result.arrival_time)}</TableCell>
             <TableCell>${result.cost} CAD</TableCell>
             <TableCell>{result.score}</TableCell>

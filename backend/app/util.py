@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 # Function Purpose: processes the data from the SerpAPI
 # Ensures that the duration time can be calculated with, and determine if a flight is classified as a "Red-Eye"
-def process_flight_data(flight_data):
+def process_flight_data(flight_data, departure_id, arrival_id):
     processed_data = []
 
     if "best_flights" in flight_data:
@@ -24,6 +24,16 @@ def process_flight_data(flight_data):
                 duration = (arrival_time - departure_time).total_seconds() / 60
 
                 is_redeye = departure_time.hour >= 0 and departure_time.hour < 6
+
+                departure_airport_id = flight["departure_airport"]["id"]
+                arrival_airport_id = flight["arrival_airport"]["id"]
+
+                # check if departure and arrival match input, if not skip
+                if (
+                    departure_airport_id != departure_id
+                    or arrival_airport_id != arrival_id
+                ):
+                    continue
 
                 processed_data.append(
                     {

@@ -59,10 +59,10 @@ def search():
                 "status_code": response.status_code,
             }
         )
-    flight_data = process_flight_data(response.json())
+    flight_data = process_flight_data(response.json(), departure_id, arrival_id)
 
     if not flight_data:
         return jsonify({"message": "No flight data available"}), 404
-    
+
     scored_flight_data = calculate_scores(flight_data, preferences)
     return jsonify(scored_flight_data)
