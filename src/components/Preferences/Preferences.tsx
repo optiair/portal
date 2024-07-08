@@ -62,11 +62,15 @@ interface PreferencesProps {
 }
 
 const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
+  const [open, setOpen] = React.useState(false);
   const [preferences, setPreferences] = useState<PreferencesType>({
     costPreference: 3,
     durationPreference: 3,
     redeyePreference: 3,
   });
+
+  const [initialPreferences, setInitialPreferences] =
+    useState<PreferencesType>(preferences);
 
   useEffect(() => {
     onPreferencesChange(preferences);
@@ -77,8 +81,17 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
       setPreferences((prev) => ({ ...prev, [key]: parseInt(value, 10) }));
     };
 
+  const handleDialogOpenChange = (isOpen: boolean) => {
+    if (!isOpen) {
+      setPreferences(initialPreferences); // Reset preferences if dialog is closed without saving
+    } else {
+      setInitialPreferences(preferences); // Store initial preferences when dialog is opened
+    }
+    setOpen(isOpen);
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button variant="ghost" className={styles.ghostButton}>
           <Typography variant="small">Preferences</Typography>
@@ -139,7 +152,9 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit" onClick={() => setOpen(false)}>
+            Save changes
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
