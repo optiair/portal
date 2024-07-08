@@ -1,3 +1,4 @@
+import { format, toZonedTime } from 'date-fns-tz';
 import { PlaneTakeoff } from 'lucide-react';
 import { useContext } from 'react';
 
@@ -26,45 +27,39 @@ const BestFlightBadge: React.FC = () => {
   );
 };
 
+const formatToEST = (dateString: string) => {
+  const date = new Date(dateString);
+  const timeZone = 'America/New_York'; // EST time zone
+  const zonedDate = toZonedTime(date, timeZone);
+  return format(zonedDate, 'hh:mm aaaa'); // 12-hour format
+};
+
 export const Results: React.FC = () => {
-  const { flights, setFlights } = useContext(FlightContext);
+  const { flights } = useContext(FlightContext);
   const bestScore = Math.max(...flights.map((result) => result.score));
+
+  const tableHeads = [
+    'Airline',
+    'Flight Number',
+    'Departure',
+    'Duration',
+    'Arrival',
+    'Cost',
+    'Score',
+    '', // best flight badge
+  ];
 
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Airline
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Flight Number
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Departure
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Arrival
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Cost
-            </Typography>
-          </TableHead>
-          <TableHead>
-            <Typography variant="small" color="#549CDE">
-              Score
-            </Typography>
-          </TableHead>
-          <TableHead />
+          {tableHeads.map((head) => (
+            <TableHead key={head}>
+              <Typography variant="small" color="#549CDE">
+                {head}
+              </Typography>
+            </TableHead>
+          ))}
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -72,8 +67,9 @@ export const Results: React.FC = () => {
           <TableRow key={result.flight_number}>
             <TableCell>{result.airline}</TableCell>
             <TableCell>{result.flight_number}</TableCell>
-            <TableCell>{result.departure_time}</TableCell>
-            <TableCell>{result.arrival_time}</TableCell>
+            <TableCell>{formatToEST(result.departure_time)}</TableCell>
+            <TableCell>{result.duration}</TableCell>
+            <TableCell>{formatToEST(result.arrival_time)}</TableCell>
             <TableCell>${result.cost} CAD</TableCell>
             <TableCell>{result.score}</TableCell>
             <TableCell>

@@ -50,8 +50,6 @@ def search():
         "currency": "CAD",
     }
 
-    print(params)
-
     try:
         response = requests.get(search_url, params=params)
     except Exception as e:
@@ -61,7 +59,10 @@ def search():
                 "status_code": response.status_code,
             }
         )
-
     flight_data = process_flight_data(response.json())
+
+    if not flight_data:
+        return jsonify({"message": "No flight data available"}), 404
+    
     scored_flight_data = calculate_scores(flight_data, preferences)
     return jsonify(scored_flight_data)
