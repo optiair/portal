@@ -32,7 +32,7 @@ def process_flight_data(flight_data, departure_id, arrival_id):
 
                 duration = (arrival_time_est - departure_time_est).total_seconds() / 60
 
-                is_redeye = departure_time_est.hour >= 0 and departure_time_est.hour < 6
+                is_redeye = departure_time_est.hour >= 0 and departure_time_est.hour < 4
 
                 departure_airport_id = flight["departure_airport"]["id"]
                 arrival_airport_id = flight["arrival_airport"]["id"]
@@ -101,6 +101,6 @@ def calculate_scores(flights, preferences):
             score += 1 * redeye_preference
 
         flight["bin_score"] = bin_scores
-        flight["score"] = score
+        flight["score"] = (score/15)*100
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}

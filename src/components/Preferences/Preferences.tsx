@@ -33,8 +33,12 @@ const RadioOptions: React.FC<RadioOptionsProps> = ({
       onValueChange={onChange}
     >
       <div className="flex items-center space-x-2">
+        <RadioGroupItem value="0" id="option-zero" />
+        <Label htmlFor="option-zero">Indifferent</Label>
+      </div>
+      <div className="flex items-center space-x-2">
         <RadioGroupItem value="1" id="option-one" />
-        <Label htmlFor="option-one">1</Label>
+        <Label htmlFor="option-one">1 (Least Important)</Label>
       </div>
       <div className="flex items-center space-x-2">
         <RadioGroupItem value="2" id="option-two" />
@@ -50,7 +54,7 @@ const RadioOptions: React.FC<RadioOptionsProps> = ({
       </div>
       <div className="flex items-center space-x-2">
         <RadioGroupItem value="5" id="option-five" />
-        <Label htmlFor="option-five">5</Label>
+        <Label htmlFor="option-five">5 (Most Important)</Label>
       </div>
     </RadioGroup>
   );
@@ -93,10 +97,10 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
     <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button variant="ghost" className={styles.ghostButton}>
-          <Typography variant="small">Preferences</Typography>
+          <Typography variant="small">Edit Preferences</Typography>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[800px]">
         <DialogHeader>
           <div className={styles.header}>
             <DialogTitle>Search Preferences</DialogTitle>
@@ -106,7 +110,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
                   Please enter your search preferences here.
                 </Typography>
                 <Typography variant="small" color="#4F4F4F">
-                  1 is least preferred, 5 is most preferred.
+                  1 is least important, 5 is most important.
                 </Typography>
               </div>
             </DialogDescription>
@@ -116,7 +120,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
               <Typography variant="small" color="#549CDE">
-                Cost of ticket
+                How important is the cost of flight?
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
@@ -128,7 +132,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
               <Typography variant="small" color="#549CDE">
-                Duration of flight
+                How important is the duration of the flight?
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
@@ -140,7 +144,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
               <Typography variant="small" color="#549CDE">
-                Avoid redeye flight
+                How important is avoiding departure times between 12:00AM to 4:00AM?
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>

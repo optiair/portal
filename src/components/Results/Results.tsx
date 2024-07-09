@@ -89,7 +89,7 @@ export const Results: React.FC = () => {
             </TableCell>
             <TableCell>{formatToEST(result.arrival_time)}</TableCell>
             <TableCell>${result.cost} CAD</TableCell>
-            <TableCell>{result.score}</TableCell>
+            <TableCell>{result.score}/100 </TableCell>
             <TableCell>
               {result.score === bestScore ? <BestFlightBadge /> : ''}
             </TableCell>
