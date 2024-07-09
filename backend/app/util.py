@@ -101,6 +101,8 @@ def calculate_scores(flights, preferences):
             score += 1 * redeye_preference
 
         flight["bin_score"] = bin_scores
-        flight["score"] = (score/15)*100
+
+        #The score will added 15, and its out of 30 now, mulitplied by 100. 
+        flight["score"] = ((score+15)/30)*100
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}
