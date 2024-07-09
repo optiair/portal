@@ -37,7 +37,7 @@ const formatToEST = (dateString: string) => {
 const convertMinutesToHoursAndMinutes = (minutes: number) => {
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
-  return `${hours}h${remainingMinutes.toString().padStart(2, '0')}min`;
+  return `${hours}h ${remainingMinutes.toString().padStart(2, '0')}min`;
 };
 
 export const Results: React.FC = () => {
@@ -71,7 +71,17 @@ export const Results: React.FC = () => {
       <TableBody>
         {flights.map((result) => (
           <TableRow key={result.flight_number}>
-            <TableCell>{result.airline}</TableCell>
+            <TableCell>
+              <div className={styles.airline}>
+                <img
+                  src={result.airline_logo}
+                  alt={`${result.airline} logo`}
+                  width={24}
+                  height={24}
+                />
+                {result.airline}
+              </div>
+            </TableCell>
             <TableCell>{result.flight_number}</TableCell>
             <TableCell>{formatToEST(result.departure_time)}</TableCell>
             <TableCell>

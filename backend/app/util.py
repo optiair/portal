@@ -43,12 +43,14 @@ def process_flight_data(flight_data, departure_id, arrival_id):
                         "arrival_time": arrival_time,
                         "duration": duration,
                         "airline": flight["airline"],
+                        "airline_logo": flight["airline_logo"],
                         "flight_number": flight["flight_number"],
                         "cost": best_flight["price"],
                         "currency": flight_data["search_parameters"]["currency"],
                         "is_redeye": is_redeye,
                     }
                 )
+
     return processed_data
 
 
