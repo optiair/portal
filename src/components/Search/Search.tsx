@@ -128,7 +128,7 @@ export const Search: React.FC = () => {
             </Typography>
             <ComboBox combos={airports} onValueChange={handleOriginChange} />
             {airportError && (
-              <Typography variant="small" color="#FF6347">
+              <Typography variant="tiny" color="#FF6347">
                 Origin and destination airports cannot be the same.
               </Typography>
             )}
@@ -154,7 +154,7 @@ export const Search: React.FC = () => {
             </Typography>
             <DatePicker onDateChange={handleReturnDateChange} />
             {dateError && (
-              <Typography variant="small" color="#FF6347">
+              <Typography variant="tiny" color="#FF6347">
                 Return date cannot be before departure date.
               </Typography>
             )}
