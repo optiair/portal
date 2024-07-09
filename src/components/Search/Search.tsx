@@ -1,4 +1,6 @@
+import { LoaderCircle } from 'lucide-react';
 import React, { useContext, useState } from 'react';
+
 import { FlightContext } from '@/App';
 import { Preferences } from '@/components/Preferences';
 import { PreferencesType } from '@/components/types';
@@ -14,7 +16,6 @@ import {
 import { ComboBox } from '@/components/ui/combobox';
 import { DatePicker } from '@/components/ui/datepicker';
 import airports from '@/data/airports.json';
-import { LoaderCircle } from 'lucide-react';
 
 import styles from './Search.module.scss';
 
@@ -81,6 +82,7 @@ export const Search: React.FC = () => {
     });
 
     setIsLoading(true);
+    setFlights([]);
 
     try {
       const response = await fetch(`${apiUrl}?${params.toString()}`);

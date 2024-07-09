@@ -1,4 +1,3 @@
-import { Info } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 import { PreferencesType } from '@/components/types';
@@ -141,7 +140,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           <div className={styles.radioContainer}>
             <div className={styles.radioHeader}>
               <Typography variant="small" color="#549CDE">
-                Redeye flight
+                Avoid redeye flight
               </Typography>
               {/* <Info size={18} className={styles.icon} /> */}
             </div>
