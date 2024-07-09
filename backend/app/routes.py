@@ -1,9 +1,8 @@
 from dotenv import load_dotenv
 from flask import Blueprint, jsonify, request
-from datetime import datetime
-from werkzeug.exceptions import BadRequest
 import requests
 import os
+import logging
 
 from app.util import process_flight_data, calculate_scores
 
@@ -11,6 +10,9 @@ from app.util import process_flight_data, calculate_scores
 load_dotenv()
 
 main = Blueprint("main", __name__)
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 
 @main.route("/api/hello", methods=["GET"])
@@ -21,15 +23,23 @@ def hello():
 @main.route("/api/search", methods=["GET"])
 def search():
     api_key = os.getenv("SERPAPI_KEY")
+    if not api_key:
+        logging.error("SERPAPI_KEY not found in environment variables")
+        return jsonify({"error": "Internal Server Error"}), 500
+
     search_url = f"https://serpapi.com/search"
 
-    departure_id = request.args["departure_id"]
-    arrival_id = request.args["arrival_id"]
-    outbound_date = request.args["outbound_date"]
-    return_date = request.args.get("return_date")
-    cost_preference = int(request.args.get("cost_preference"))
-    duration_preference = int(request.args.get("duration_preference"))
-    redeye_preference = int(request.args.get("redeye_preference"))
+    try:
+        departure_id = request.args["departure_id"]
+        arrival_id = request.args["arrival_id"]
+        outbound_date = request.args["outbound_date"]
+        return_date = request.args.get("return_date")
+        cost_preference = int(request.args.get("cost_preference", 0))
+        duration_preference = int(request.args.get("duration_preference", 0))
+        redeye_preference = int(request.args.get("redeye_preference", 0))
+    except KeyError as e:
+        logging.error(f"Missing required query parameter: {e}")
+        return jsonify({"error": f"Missing required query parameter: {e}"}), 400
 
     preferences = {
         "cost_preference": cost_preference,
@@ -44,7 +54,7 @@ def search():
         "gl": "us",
         "departure_id": departure_id,
         "arrival_id": arrival_id,
-        "type": 1 if return_date is not None else 2,
+        "type": 1 if return_date else 2,
         "outbound_date": outbound_date,
         "return_date": return_date,
         "currency": "CAD",
@@ -52,16 +62,15 @@ def search():
 
     try:
         response = requests.get(search_url, params=params)
-    except Exception as e:
-        return jsonify(
-            {
-                "error": "Failed to retrieve data from SerpAPI",
-                "status_code": response.status_code,
-            }
-        )
+        response.raise_for_status()  # Raise an error for bad status codes
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Failed to retrieve data from SerpAPI: {e}")
+        return jsonify({"error": "Failed to retrieve data from SerpAPI"}), 500
+
     flight_data = process_flight_data(response.json(), departure_id, arrival_id)
 
     if not flight_data:
+        logging.info("No flight data available")
         return jsonify({"message": "No flight data available"}), 404
 
     scored_flight_data = calculate_scores(flight_data, preferences)
