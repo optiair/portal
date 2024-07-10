@@ -12,51 +12,32 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Slider } from '@/components/ui/slider';
 
 import styles from './Preferences.module.scss';
 
-interface RadioOptionsProps {
-  defaultValue: string;
+interface PreferenceSliderProps {
+  defaultValue: number;
   onChange: (value: string) => void;
 }
 
-const RadioOptions: React.FC<RadioOptionsProps> = ({
+const PreferenceSlider: React.FC<PreferenceSliderProps> = ({
   defaultValue,
   onChange,
 }) => {
   return (
-    <RadioGroup
-      defaultValue={defaultValue}
-      className="grid-flow-col"
-      onValueChange={onChange}
-    >
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="0" id="option-zero" />
-        <Label htmlFor="option-zero">Indifferent</Label>
+    <div className={styles.preferenceSlider}>
+      <Slider
+        defaultValue={[defaultValue]}
+        max={100}
+        step={1}
+        onValueChange={onChange}
+      />
+      <div className={styles.preferenceSliderText}>
+        <Typography variant="small">Not Important</Typography>
+        <Typography variant="small">Important</Typography>
       </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="1" id="option-one" />
-        <Label htmlFor="option-one">1 (Least Important)</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="2" id="option-two" />
-        <Label htmlFor="option-two">2</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="3" id="option-three" />
-        <Label htmlFor="option-three">3</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="4" id="option-four" />
-        <Label htmlFor="option-four">4</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="5" id="option-five" />
-        <Label htmlFor="option-five">5 (Most Important)</Label>
-      </div>
-    </RadioGroup>
+    </div>
   );
 };
 
@@ -67,9 +48,9 @@ interface PreferencesProps {
 const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
   const [open, setOpen] = React.useState(false);
   const [preferences, setPreferences] = useState<PreferencesType>({
-    costPreference: 3,
-    durationPreference: 3,
-    redeyePreference: 3,
+    costPreference: 50,
+    durationPreference: 50,
+    redeyePreference: 50,
   });
 
   const [initialPreferences, setInitialPreferences] =
@@ -100,7 +81,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           <Typography variant="small">Edit Preferences</Typography>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[800px]">
+      <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <div className={styles.header}>
             <DialogTitle>Search Preferences</DialogTitle>
@@ -109,47 +90,42 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
                 <Typography variant="small" color="#4F4F4F">
                   Please enter your search preferences here.
                 </Typography>
-                <Typography variant="small" color="#4F4F4F">
-                  1 is least important, 5 is most important.
-                </Typography>
               </div>
             </DialogDescription>
           </div>
         </DialogHeader>
         <div className={styles.container}>
-          <div className={styles.radioContainer}>
-            <div className={styles.radioHeader}>
+          <div className={styles.sliderContainer}>
+            <div className={styles.sliderHeader}>
               <Typography variant="small" color="#549CDE">
                 How important is the cost of flight?
               </Typography>
-              {/* <Info size={18} className={styles.icon} /> */}
             </div>
-            <RadioOptions
-              defaultValue={preferences.costPreference.toString()}
+            <PreferenceSlider
+              defaultValue={preferences.costPreference}
               onChange={handlePreferenceChange('costPreference')}
             />
           </div>
-          <div className={styles.radioContainer}>
-            <div className={styles.radioHeader}>
+          <div className={styles.sliderContainer}>
+            <div className={styles.sliderHeader}>
               <Typography variant="small" color="#549CDE">
                 How important is the duration of the flight?
               </Typography>
-              {/* <Info size={18} className={styles.icon} /> */}
-            </div>
-            <RadioOptions
-              defaultValue={preferences.durationPreference.toString()}
+            </div>{' '}
+            <PreferenceSlider
+              defaultValue={preferences.durationPreference}
               onChange={handlePreferenceChange('durationPreference')}
             />
           </div>
-          <div className={styles.radioContainer}>
-            <div className={styles.radioHeader}>
+          <div className={styles.sliderContainer}>
+            <div className={styles.sliderHeader}>
               <Typography variant="small" color="#549CDE">
-                How important is avoiding departure times between 12:00AM to 4:00AM?
+                How important is avoiding a departure time between 12:00AM to
+                4:00AM?
               </Typography>
-              {/* <Info size={18} className={styles.icon} /> */}
             </div>
-            <RadioOptions
-              defaultValue={preferences.redeyePreference.toString()}
+            <PreferenceSlider
+              defaultValue={preferences.redeyePreference}
               onChange={handlePreferenceChange('redeyePreference')}
             />
           </div>
