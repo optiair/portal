@@ -100,6 +100,9 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
               <Typography variant="small" color="#549CDE">
                 How important is the cost of flight?
               </Typography>
+              <Typography variant="small" color="#549CDE">
+                {preferences.costPreference}
+              </Typography>
             </div>
             <PreferenceSlider
               defaultValue={preferences.costPreference}
@@ -111,7 +114,10 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
               <Typography variant="small" color="#549CDE">
                 How important is the duration of the flight?
               </Typography>
-            </div>{' '}
+              <Typography variant="small" color="#549CDE">
+                {preferences.durationPreference}
+              </Typography>
+            </div>
             <PreferenceSlider
               defaultValue={preferences.durationPreference}
               onChange={handlePreferenceChange('durationPreference')}
@@ -122,6 +128,9 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
               <Typography variant="small" color="#549CDE">
                 How important is avoiding a departure time between 12:00AM to
                 4:00AM?
+              </Typography>
+              <Typography variant="small" color="#549CDE">
+                {preferences.redeyePreference}
               </Typography>
             </div>
             <PreferenceSlider
