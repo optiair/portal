@@ -1,3 +1,4 @@
+import json
 from dotenv import load_dotenv
 from flask import Blueprint, jsonify, request
 import requests
@@ -84,6 +85,8 @@ def score():
         "redeye_preference": redeye_preference,
     }
 
-    scored_flight_data = calculate_scores(flight_data, preferences)
+    # Parse flight_data from JSON string to list of dictionaries
+    flights = json.loads(flight_data)
 
+    scored_flight_data = calculate_scores(flights, preferences)
     return jsonify(scored_flight_data)

@@ -91,6 +91,6 @@ def calculate_scores(flights, preferences):
 
         flight["bin_score"] = bin_scores
         flight["score"] = score
-        flight["weighted_score"] = (score / total_preference) * 100
+        flight["weighted_score"] = round((score / total_preference) * 100)
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}

@@ -4,7 +4,7 @@ from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)  # Allow CORS for all routes and origins
+    CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
     from .routes import main
 
