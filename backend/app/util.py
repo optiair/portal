@@ -64,33 +64,24 @@ def normalize_flight_data(flight_data, departure_id, arrival_id):
 
 
 def calculate_scores(flights, preferences):
-    cost_preference = preferences["cost_preference"]
-    duration_preference = preferences["duration_preference"]
-    redeye_preference = preferences["redeye_preference"]
-
     avg_cost = sum(flight["cost"] for flight in flights) / len(flights)
     avg_duration = sum(flight["duration"] for flight in flights) / len(flights)
-
-    total_preference = cost_preference + duration_preference + redeye_preference
+    total_preference = sum(preferences.values())
 
     for flight in flights:
-        bin_scores = []
-        score = 0
+        bin_scores = [
+            int(flight["cost"] <= avg_cost),
+            int(flight["duration"] <= avg_duration),
+            int(not flight["is_redeye"]),
+        ]
 
-        # Determine cost preference score
-        bin_scores.append(int(flight["cost"] <= avg_cost))
-        score += cost_preference if flight["cost"] <= avg_cost else 0
-
-        # Determine duration preference score
-        bin_scores.append(int(flight["duration"] <= avg_duration))
-        score += duration_preference if flight["duration"] <= avg_duration else 0
-
-        # Determine redeye preference score
-        bin_scores.append(int(not flight["is_redeye"]))
-        score += redeye_preference if not flight["is_redeye"] else 0
+        weighted_bin_score = [
+            round(bin_score * preference * 100 / total_preference)
+            for bin_score, preference in zip(bin_scores, preferences.values())
+        ]
 
         flight["bin_score"] = bin_scores
-        flight["score"] = score
-        flight["weighted_score"] = round((score / total_preference) * 100)
+        flight["weighted_bin_score"] = weighted_bin_score
+        flight["weighted_score"] = sum(weighted_bin_score)
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}

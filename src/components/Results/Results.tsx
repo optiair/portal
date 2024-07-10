@@ -13,6 +13,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import styles from './Results.module.scss';
 
@@ -52,14 +58,27 @@ export const Results: React.FC = () => {
   );
 
   const tableHeads = [
-    'Airline',
-    'Flight Number',
-    'Departure',
-    'Duration',
-    'Arrival',
-    'Cost',
-    'Score',
-    '', // best flight badge
+    { title: 'Airline', description: 'The airline operating the flight' },
+    {
+      title: 'Flight Number',
+      description: 'The flight number assigned by the airline',
+    },
+    {
+      title: 'Departure',
+      description: 'The departure time of the flight in EST',
+    },
+    { title: 'Duration', description: 'The total duration of the flight' },
+    { title: 'Arrival', description: 'The arrival time of the flight in EST' },
+    { title: 'Cost', description: 'The cost of the flight in CAD' },
+    {
+      title: 'Score',
+      description:
+        'Calculated based on a weighted average calculation of user preferences and flight variables',
+    },
+    {
+      title: '',
+      description: 'Badge indicating the best flight based on user preferences',
+    }, // best flight badge
   ];
 
   return (
@@ -67,10 +86,19 @@ export const Results: React.FC = () => {
       <TableHeader>
         <TableRow>
           {tableHeads.map((head) => (
-            <TableHead key={head}>
-              <Typography variant="small" color="#549CDE">
-                {head}
-              </Typography>
+            <TableHead key={head.title}>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Typography variant="small" color="#549CDE">
+                      {head.title}
+                    </Typography>
+                  </TooltipTrigger>
+                  <TooltipContent className="w-[80%]">
+                    <p>{head.description}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </TableHead>
           ))}
         </TableRow>
@@ -96,7 +124,35 @@ export const Results: React.FC = () => {
             </TableCell>
             <TableCell>{formatToEST(result.arrival_time)}</TableCell>
             <TableCell>${result.cost} CAD</TableCell>
-            <TableCell>{result.weighted_score}/100 </TableCell>
+            <TableCell>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <div>{result.weighted_score}/100</div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <Typography variant="small" color="#549CDE">
+                      Score Calculation:
+                    </Typography>
+                    <Typography variant="small" color="#4F4F4F">
+                      {result.weighted_bin_score[0] === 0
+                        ? '0 - Cost is above average.'
+                        : `${result.weighted_bin_score[0]} - Cost is below average.`}
+                    </Typography>
+                    <Typography variant="small" color="#4F4F4F">
+                      {result.weighted_bin_score[1] === 0
+                        ? '0 - Duration is above average.'
+                        : `${result.weighted_bin_score[1]} - Duration is below average.`}
+                    </Typography>
+                    <Typography variant="small" color="#4F4F4F">
+                      {result.weighted_bin_score[2] === 0
+                        ? '0 - Redeye flight.'
+                        : `${result.weighted_bin_score[2]} - Not a redeye flight.`}
+                    </Typography>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </TableCell>
             <TableCell>
               {result.weighted_score === bestScore ? <BestFlightBadge /> : ''}
             </TableCell>
