@@ -2,6 +2,8 @@ altgraph @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef
 appnope==0.1.4
 asttokens==2.4.1
 blinker==1.8.2
+certifi==2024.7.4
+charset-normalizer==3.3.2
 click==8.1.7
 comm==0.2.2
 contourpy==1.2.1
@@ -15,6 +17,7 @@ Flask-Cors==4.0.1
 fonttools==4.51.0
 future @ file:///AppleInternal/Library/BuildRoots/860631e9-c1c5-11ee-98ee-b6ef2fd8d87b/Library/Caches/com.apple.xbs/Sources/python3/future-0.18.2-py3-none-any.whl
 gurobipy==11.0.2
+idna==3.7
 importlib_metadata==7.1.0
 importlib_resources==6.4.0
 ipykernel==6.29.4
@@ -45,8 +48,10 @@ pure-eval==0.2.2
 Pygments==2.18.0
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 pytz==2024.1
 pyzmq==26.0.3
+requests==2.32.3
 scikit-learn==1.4.2
 scipy==1.13.0
 seaborn==0.13.2
@@ -58,6 +63,7 @@ tornado==6.4
 traitlets==5.14.3
 typing_extensions==4.11.0
 tzdata==2024.1
+urllib3==2.2.2
 wcwidth==0.2.13
 Werkzeug==3.0.3
 zipp==3.18.1

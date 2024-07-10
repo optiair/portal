@@ -42,7 +42,7 @@ const convertMinutesToHoursAndMinutes = (minutes: number) => {
 
 export const Results: React.FC = () => {
   const { flights } = useContext(FlightContext);
-  const bestScore = Math.max(...flights.map((result) => result.score));
+  const bestScore = Math.max(...flights.map((result) => result.weighted_score));
 
   const tableHeads = [
     'Airline',
@@ -89,9 +89,9 @@ export const Results: React.FC = () => {
             </TableCell>
             <TableCell>{formatToEST(result.arrival_time)}</TableCell>
             <TableCell>${result.cost} CAD</TableCell>
-            <TableCell>{result.score}/100 </TableCell>
+            <TableCell>{result.weighted_score}/100 </TableCell>
             <TableCell>
-              {result.score === bestScore ? <BestFlightBadge /> : ''}
+              {result.weighted_score === bestScore ? <BestFlightBadge /> : ''}
             </TableCell>
           </TableRow>
         ))}

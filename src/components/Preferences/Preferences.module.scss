@@ -14,26 +14,39 @@
   gap: 12px;
 }
 
-.radioContainer {
+.sliderContainer {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.radioHeader {
+.sliderHeader {
   display: flex;
   flex-direction: row;
   align-items: start;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 2px;
 }
 
 .icon {
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 .description {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.preferenceSlider {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.preferenceSliderText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

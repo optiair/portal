@@ -76,9 +76,6 @@ export const Search: React.FC = () => {
       arrival_id: destination,
       outbound_date: departureDate?.toISOString().split('T')[0] || '',
       return_date: returnDate?.toISOString().split('T')[0] || '',
-      cost_preference: preferences?.costPreference.toString() || '0',
-      duration_preference: preferences?.durationPreference.toString() || '0',
-      redeye_preference: preferences?.redeyePreference.toString() || '0',
     });
 
     setIsLoading(true);
@@ -92,20 +89,48 @@ export const Search: React.FC = () => {
       }
 
       const data = await response.json();
-      setIsLoading(false);
       return data;
     } catch (error) {
       console.error('Error fetching flights:', error);
+      return null;
+    } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleScoreFlights = async (flightData: any) => {
+    const apiUrl = 'http://127.0.0.1:5000/api/score';
+    const params = new URLSearchParams({
+      flight_data: JSON.stringify(flightData),
+      cost_preference: preferences?.costPreference.toString() || '0',
+      duration_preference: preferences?.durationPreference.toString() || '0',
+      redeye_preference: preferences?.redeyePreference.toString() || '0',
+    });
+
+    try {
+      const response = await fetch(`${apiUrl}?${params.toString()}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error scoring flights:', error);
       return null;
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data = await handleGetFlights();
-    if (data) {
-      setFlights(data.flights);
+    const flightData = await handleGetFlights();
+    console.log(flightData);
+    if (flightData) {
+      const scoredData = await handleScoreFlights(flightData);
+      if (scoredData) {
+        setFlights(scoredData.flights);
+      }
     }
   };
 

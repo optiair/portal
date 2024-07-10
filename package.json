@@ -7,7 +7,7 @@
     "dev": "vite",
     "server": "cd backend && python3 run.py",
     "server:setup": "cd backend && python3 -m venv venv && source venv/bin/activate",
-    "server:install": "cd backend && pip install -r requirements.txt",
+    "server:install": "cd backend && pip3 install -r requirements.txt",
     "format": "prettier --write ./src",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
