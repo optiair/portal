@@ -42,7 +42,14 @@ const convertMinutesToHoursAndMinutes = (minutes: number) => {
 
 export const Results: React.FC = () => {
   const { flights } = useContext(FlightContext);
-  const bestScore = Math.max(...flights.map((result) => result.weighted_score));
+
+  // Sort flights by weighted_score in descending order
+  const sortedFlights = [...flights].sort(
+    (a, b) => b.weighted_score - a.weighted_score
+  );
+  const bestScore = Math.max(
+    ...sortedFlights.map((result) => result.weighted_score)
+  );
 
   const tableHeads = [
     'Airline',
@@ -69,7 +76,7 @@ export const Results: React.FC = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {flights.map((result) => (
+        {sortedFlights.map((result) => (
           <TableRow key={result.flight_number}>
             <TableCell>
               <div className={styles.airline}>
