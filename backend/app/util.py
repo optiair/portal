@@ -4,7 +4,7 @@ import pytz
 
 # Function Purpose: processes the data from the SerpAPI
 # Ensures that the duration time can be calculated with, and determine if a flight is classified as a "Red-Eye"
-def process_flight_data(flight_data, departure_id, arrival_id):
+def normalize_flight_data(flight_data, departure_id, arrival_id):
     processed_data = []
 
     # Define the GMT and EST timezones

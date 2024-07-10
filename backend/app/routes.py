@@ -34,18 +34,9 @@ def search():
         arrival_id = request.args["arrival_id"]
         outbound_date = request.args["outbound_date"]
         return_date = request.args.get("return_date")
-        cost_preference = int(request.args.get("cost_preference", 0))
-        duration_preference = int(request.args.get("duration_preference", 0))
-        redeye_preference = int(request.args.get("redeye_preference", 0))
     except KeyError as e:
         logging.error(f"Missing required query parameter: {e}")
         return jsonify({"error": f"Missing required query parameter: {e}"}), 400
-
-    preferences = {
-        "cost_preference": cost_preference,
-        "duration_preference": duration_preference,
-        "redeye_preference": redeye_preference,
-    }
 
     params = {
         "api_key": api_key,
@@ -67,11 +58,31 @@ def search():
         logging.error(f"Failed to retrieve data from SerpAPI: {e}")
         return jsonify({"error": "Failed to retrieve data from SerpAPI"}), 500
 
-    flight_data = process_flight_data(response.json(), departure_id, arrival_id)
+    flight_data = normalize_flight_data(response.json(), departure_id, arrival_id)
 
     if not flight_data:
         logging.info("No flight data available")
         return jsonify({"message": "No flight data available"}), 404
 
+    return jsonify(flight_data)
+
+@main.route("/api/score", methods=["GET"])
+def score():
+    try:
+        flight_data = request.args["flight_data"]
+        cost_preference = int(request.args.get("cost_preference"))
+        duration_preference = int(request.args.get("duration_preference"))
+        redeye_preference = int(request.args.get("redeye_preference"))
+    except KeyError as e:
+        logging.error(f"Missing required query parameter: {e}")
+        return jsonify({"error": f"Missing required query parameter: {e}"}), 400
+
+    preferences = {
+        "cost_preference": cost_preference,
+        "duration_preference": duration_preference,
+        "redeye_preference": redeye_preference,
+    }
+
     scored_flight_data = calculate_scores(flight_data, preferences)
+
     return jsonify(scored_flight_data)
