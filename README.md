@@ -2,7 +2,7 @@
 
 OptimalAir is a web application designed to help users find the best flights based on their preferences for cost, duration, and whether the flight is a red-eye. The project is composed of a backend server written in Python and a frontend application built with React and Vite.
 
-![alt text](image.png)
+![alt text](optiair.png)
 
 ## Table of Contents
 
