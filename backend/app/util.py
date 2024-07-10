@@ -63,46 +63,34 @@ def normalize_flight_data(flight_data, departure_id, arrival_id):
     return processed_data
 
 
-# Calculate the scores using the user's inputted preferences and the flights' comparsion with the average calculated cost and duration
 def calculate_scores(flights, preferences):
-    cost_preference, duration_preference, redeye_preference = (
-        preferences["cost_preference"],
-        preferences["duration_preference"],
-        preferences["redeye_preference"],
-    )
+    cost_preference = preferences["cost_preference"]
+    duration_preference = preferences["duration_preference"]
+    redeye_preference = preferences["redeye_preference"]
+
     avg_cost = sum(flight["cost"] for flight in flights) / len(flights)
     avg_duration = sum(flight["duration"] for flight in flights) / len(flights)
+
+    total_preference = cost_preference + duration_preference + redeye_preference
 
     for flight in flights:
         bin_scores = []
         score = 0
+
         # Determine cost preference score
-        if flight["cost"] > avg_cost:
-            bin_scores.append(-1)
-            score += -1 * cost_preference
-        else:
-            bin_scores.append(1)
-            score += 1 * cost_preference
+        bin_scores.append(int(flight["cost"] <= avg_cost))
+        score += cost_preference if flight["cost"] <= avg_cost else 0
 
         # Determine duration preference score
-        if flight["duration"] > avg_duration:
-            bin_scores.append(-1)
-            score += -1 * duration_preference
-        else:
-            bin_scores.append(1)
-            score += 1 * duration_preference
+        bin_scores.append(int(flight["duration"] <= avg_duration))
+        score += duration_preference if flight["duration"] <= avg_duration else 0
 
-        # Determine redeye_preference
-        if flight["is_redeye"]:
-            bin_scores.append(-1)
-            score += -1 * redeye_preference
-        else:
-            bin_scores.append(1)
-            score += 1 * redeye_preference
+        # Determine redeye preference score
+        bin_scores.append(int(not flight["is_redeye"]))
+        score += redeye_preference if not flight["is_redeye"] else 0
 
         flight["bin_score"] = bin_scores
-
-        #The score will added 15, and its out of 30 now, mulitplied by 100. 
-        flight["score"] = ((score+15)/30)*100
+        flight["score"] = score
+        flight["weighted_score"] = (score / total_preference) * 100
 
     return {"flights": flights, "avg_cost": avg_cost, "avg_duration": avg_duration}

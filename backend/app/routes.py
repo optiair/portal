@@ -4,7 +4,7 @@ import requests
 import os
 import logging
 
-from app.util import process_flight_data, calculate_scores
+from app.util import normalize_flight_data, calculate_scores
 
 # Load environment variables from .env file
 load_dotenv()
@@ -65,6 +65,7 @@ def search():
         return jsonify({"message": "No flight data available"}), 404
 
     return jsonify(flight_data)
+
 
 @main.route("/api/score", methods=["GET"])
 def score():
