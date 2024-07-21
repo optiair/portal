@@ -65,7 +65,11 @@ def search():
         logging.info("No flight data available")
         return jsonify({"message": "No flight data available"}), 404
 
-    return jsonify(flight_data)
+    google_flights_url = response.json()["search_metadata"]["google_flights_url"]
+
+    return jsonify(
+        {"flight_data": flight_data, "google_flights_url": google_flights_url}
+    )
 
 
 @main.route("/api/score", methods=["GET"])

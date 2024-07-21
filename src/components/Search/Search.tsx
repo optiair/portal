@@ -1,5 +1,6 @@
 import { LoaderCircle } from 'lucide-react';
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { FlightContext } from '@/App';
 import { Preferences } from '@/components/Preferences';
@@ -20,7 +21,10 @@ import airports from '@/data/airports.json';
 import styles from './Search.module.scss';
 
 export const Search: React.FC = () => {
+  const navigate = useNavigate();
   const { flights, setFlights } = useContext(FlightContext);
+  const { preferences, setPreferences } = useContext(FlightContext);
+  const { googleFlightsURL, setGoogleFlightsURL } = useContext(FlightContext);
 
   // Airports
   const [origin, setOrigin] = useState<string>('');
@@ -59,9 +63,6 @@ export const Search: React.FC = () => {
       setDateError(false);
     }
   };
-
-  // Preferences
-  const [preferences, setPreferences] = useState<PreferencesType>();
 
   const handlePreferencesChange = (newPreferences: PreferencesType) => {
     setPreferences(newPreferences);
@@ -125,11 +126,12 @@ export const Search: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const flightData = await handleGetFlights();
-    console.log(flightData);
     if (flightData) {
-      const scoredData = await handleScoreFlights(flightData);
+      const scoredData = await handleScoreFlights(flightData.flight_data);
       if (scoredData) {
         setFlights(scoredData.flights);
+        setGoogleFlightsURL(flightData.google_flights_url);
+        navigate('/results');
       }
     }
   };

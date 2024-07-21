@@ -4,6 +4,22 @@
   gap: 8px;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  background: #fff;
+  padding: 1.5rem;
+  gap: 24px;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  gap: 8px;
+}
+
 .badge {
   display: flex;
   flex-direction: row;

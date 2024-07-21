@@ -3,8 +3,12 @@ import { PlaneTakeoff } from 'lucide-react';
 import { useContext } from 'react';
 
 import { FlightContext } from '@/App';
+import { Preferences } from '@/components/Preferences';
+import { PreferencesType } from '@/components/types';
 import { Typography } from '@/components/Typography';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardFooter } from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -47,7 +51,19 @@ const convertMinutesToHoursAndMinutes = (minutes: number) => {
 };
 
 export const Results: React.FC = () => {
-  const { flights } = useContext(FlightContext);
+  const { flights, setFlights } = useContext(FlightContext);
+  const { preferences, setPreferences } = useContext(FlightContext);
+  const { googleFlightsURL, setGoogleFlightsURL } = useContext(FlightContext);
+
+  const handleViewOnGoogleFlights = () => {
+    if (googleFlightsURL) {
+      window.open(googleFlightsURL, '_blank');
+    }
+  };
+
+  const handlePreferencesChange = (newPreferences: PreferencesType) => {
+    setPreferences(newPreferences);
+  };
 
   // Sort flights by weighted_score in descending order
   const sortedFlights = [...flights].sort(
@@ -82,83 +98,105 @@ export const Results: React.FC = () => {
   ];
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          {tableHeads.map((head) => (
-            <TableHead key={head.title}>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Typography variant="small" color="#549CDE">
-                      {head.title}
-                    </Typography>
-                  </TooltipTrigger>
-                  <TooltipContent className="w-[80%]">
-                    <p>{head.description}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {sortedFlights.map((result) => (
-          <TableRow key={result.flight_number}>
-            <TableCell>
-              <div className={styles.airline}>
-                <img
-                  src={result.airline_logo}
-                  alt={`${result.airline} logo`}
-                  width={24}
-                  height={24}
-                />
-                {result.airline}
-              </div>
-            </TableCell>
-            <TableCell>{result.flight_number}</TableCell>
-            <TableCell>{formatToEST(result.departure_time)}</TableCell>
-            <TableCell>
-              {convertMinutesToHoursAndMinutes(result.duration)}
-            </TableCell>
-            <TableCell>{formatToEST(result.arrival_time)}</TableCell>
-            <TableCell>${result.cost} CAD</TableCell>
-            <TableCell>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <div>{result.weighted_score}/100</div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <Typography variant="small" color="#549CDE">
-                      Score Calculation:
-                    </Typography>
-                    <Typography variant="small" color="#4F4F4F">
-                      {result.weighted_bin_score[0] === 0
-                        ? '0 - Cost is above average.'
-                        : `${result.weighted_bin_score[0]} - Cost is below average.`}
-                    </Typography>
-                    <Typography variant="small" color="#4F4F4F">
-                      {result.weighted_bin_score[1] === 0
-                        ? '0 - Duration is above average.'
-                        : `${result.weighted_bin_score[1]} - Duration is below average.`}
-                    </Typography>
-                    <Typography variant="small" color="#4F4F4F">
-                      {result.weighted_bin_score[2] === 0
-                        ? '0 - Redeye flight.'
-                        : `${result.weighted_bin_score[2]} - Not a redeye flight.`}
-                    </Typography>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </TableCell>
-            <TableCell>
-              {result.weighted_score === bestScore ? <BestFlightBadge /> : ''}
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <Card className={styles.card}>
+      <Typography variant="extra-large" color="#4F4F4F">
+        Search Results
+      </Typography>
+      <Card className={styles.card}>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              {tableHeads.map((head) => (
+                <TableHead key={head.title}>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Typography variant="small" color="#549CDE">
+                          {head.title}
+                        </Typography>
+                      </TooltipTrigger>
+                      <TooltipContent className="w-[80%]">
+                        <p>{head.description}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {sortedFlights.map((result) => (
+              <TableRow key={result.flight_number}>
+                <TableCell>
+                  <div className={styles.airline}>
+                    <img
+                      src={result.airline_logo}
+                      alt={`${result.airline} logo`}
+                      width={24}
+                      height={24}
+                    />
+                    {result.airline}
+                  </div>
+                </TableCell>
+                <TableCell>{result.flight_number}</TableCell>
+                <TableCell>{formatToEST(result.departure_time)}</TableCell>
+                <TableCell>
+                  {convertMinutesToHoursAndMinutes(result.duration)}
+                </TableCell>
+                <TableCell>{formatToEST(result.arrival_time)}</TableCell>
+                <TableCell>${result.cost} CAD</TableCell>
+                <TableCell>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <div>{result.weighted_score}/100</div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <Typography variant="small" color="#549CDE">
+                          Score Calculation:
+                        </Typography>
+                        <Typography variant="small" color="#4F4F4F">
+                          {result.weighted_bin_score[0] === 0
+                            ? '0 - Cost is above average.'
+                            : `${result.weighted_bin_score[0]} - Cost is below average.`}
+                        </Typography>
+                        <Typography variant="small" color="#4F4F4F">
+                          {result.weighted_bin_score[1] === 0
+                            ? '0 - Duration is above average.'
+                            : `${result.weighted_bin_score[1]} - Duration is below average.`}
+                        </Typography>
+                        <Typography variant="small" color="#4F4F4F">
+                          {result.weighted_bin_score[2] === 0
+                            ? '0 - Redeye flight.'
+                            : `${result.weighted_bin_score[2]} - Not a redeye flight.`}
+                        </Typography>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </TableCell>
+                <TableCell>
+                  {result.weighted_score === bestScore ? (
+                    <BestFlightBadge />
+                  ) : (
+                    ''
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
+      <CardFooter>
+        <div className={styles.cardFooter}>
+          <Preferences onPreferencesChange={handlePreferencesChange} />
+          <Button
+            className={styles.primaryButton}
+            onClick={handleViewOnGoogleFlights}
+          >
+            <Typography variant="small">View on Google Flights</Typography>
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
   );
 };

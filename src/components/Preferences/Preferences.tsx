@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
+import { FlightContext } from '@/App';
 import { PreferencesType } from '@/components/types';
 import { Typography } from '@/components/Typography';
 import { Button } from '@/components/ui/button';
@@ -47,11 +48,8 @@ interface PreferencesProps {
 
 const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
   const [open, setOpen] = React.useState(false);
-  const [preferences, setPreferences] = useState<PreferencesType>({
-    costPreference: 50,
-    durationPreference: 50,
-    redeyePreference: 50,
-  });
+  const { flights, setFlights } = useContext(FlightContext);
+  const { preferences, setPreferences } = useContext(FlightContext);
 
   const [initialPreferences, setInitialPreferences] =
     useState<PreferencesType>(preferences);
@@ -72,6 +70,38 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
       setInitialPreferences(preferences); // Store initial preferences when dialog is opened
     }
     setOpen(isOpen);
+  };
+
+  const handleSaveChanges = async () => {
+    setOpen(false);
+    const scoredData = await handleScoreFlights(flights);
+    if (scoredData) {
+      setFlights(scoredData.flights);
+    }
+  };
+
+  const handleScoreFlights = async (flightData: any) => {
+    const apiUrl = 'http://127.0.0.1:5000/api/score';
+    const params = new URLSearchParams({
+      flight_data: JSON.stringify(flightData),
+      cost_preference: preferences?.costPreference.toString() || '0',
+      duration_preference: preferences?.durationPreference.toString() || '0',
+      redeye_preference: preferences?.redeyePreference.toString() || '0',
+    });
+
+    try {
+      const response = await fetch(`${apiUrl}?${params.toString()}`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error scoring flights:', error);
+      return null;
+    }
   };
 
   return (
@@ -140,7 +170,7 @@ const Preferences: React.FC<PreferencesProps> = ({ onPreferencesChange }) => {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={() => setOpen(false)}>
+          <Button type="submit" onClick={async () => await handleSaveChanges()}>
             Save changes
           </Button>
         </DialogFooter>
