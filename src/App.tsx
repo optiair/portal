@@ -1,7 +1,7 @@
 import './App.css';
 
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { PreferencesType } from '@/components/types';
 import { ResultsPage } from '@/pages/ResultsPage';
@@ -43,6 +43,7 @@ function App() {
       >
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Navigate to="/search" />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/results" element={<ResultsPage />} />
           </Routes>
